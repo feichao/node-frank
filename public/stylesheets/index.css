@@ -1,0 +1,14 @@
+#index-page-container {
+	background: url('/images/home_bg.jpg');
+	background-size: cover;
+	box-sizing: border-box;
+	color: white;
+	height: 100%;
+	padding: 10px 60px;
+}
+
+#index-page-container > .title {
+	font-size: 3rem;
+  font-weight: 100;
+  margin-bottom: 50px;
+}
