@@ -1,3 +1,47 @@
 #tech-page-container {
-	
+  height: 100%;
+}
+
+.left-nav {
+  background-color: #4B4B49;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px 30px;
+  position: fixed;
+  width: 360px;
+}
+
+.left-nav > header {
+  font-size: 1.35rem;
+  overflow: hidden;
+}
+
+.left-nav > header li {
+  float: left;
+  margin-right: 20px;
+}
+
+.content {
+  background-color: white;
+  border: 1px solid transparent;
+  height: 100%;
+  margin-left: 360px;
+}
+
+.tech-catalog {
+  color: white;
+  margin-top: 50px;
+}
+
+.tech-catalog > li {
+  margin: 40px 0;
+}
+
+.tech-catalog > li > ul {
+  padding-left: 20px;
+}
+
+.tech-catalog > li > ul > li {
+  line-height: 2rem;
 }
