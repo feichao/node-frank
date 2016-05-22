@@ -37,3 +37,7 @@ var blogSchema = new Schema({
   // 标签
   tags: [String],
 });
+
+module.exports = {
+	Blog: mongoose.model('Blog', blogSchema)
+}

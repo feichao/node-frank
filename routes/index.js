@@ -8,7 +8,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Frank Wan' });
 });
 
-router.get('/tech(/:id)?', tech.renderTech);
+router.get('/tech', tech.getTech);
+
+router.get('/tech/new', tech.getNewTech);
+router.post('/tech/new', tech.postNewTech);
 
 router.get('/story', function(req, res, next) {
   res.render('index', { title: 'story' });

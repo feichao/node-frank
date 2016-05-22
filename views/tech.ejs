@@ -60,7 +60,13 @@
 	</div>
 	<!-- 拉取具体内容 -->
 	<div class="content">
-		<%- content %>
+		<h3><%= blog.title %></h3>
+		<p>
+			<span><%= blog.author %></span>
+			<span><%= blog.date %></span>
+			<span><%= blog.update %></span>
+		</p>
+		<%- blog.body %>
 	</div>
 </div>
 <% include ./footer %>

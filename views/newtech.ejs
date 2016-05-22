@@ -1,0 +1,31 @@
+<% include ./header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/newtech.css" />
+<div id="new-tech-page">
+	<form action="/tech/new" method="post">
+		<label>
+			<span>标题</span>
+			<input type="text" name="title" required="required" placeholder="输入标题">
+		</label>
+		<label>
+			<span>作者</span>
+			<input type="text" name="author" required="required" placeholder="输入作者">
+		</label>
+		<label>
+			<span>标签</span>
+			<input type="text" name="tags" required="required"  placeholder="输入标签，空格分隔">
+		</label>
+		<label>
+			<span>分类</span>
+			<select name="category">
+				<option value="0">Tech</option>
+				<option value="1">Story</option>
+			</select>
+		</label>
+		<label>
+			<textarea name='body' required="required"></textarea>
+		</label>
+		<input class="button" type="submit" value="保存">
+		<a class="button" href="/tech">返回</a>
+	</form>
+</div>
+<% include ./footer %>
