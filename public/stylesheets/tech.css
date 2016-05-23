@@ -25,8 +25,9 @@
 .content {
   background-color: white;
   border: 1px solid transparent;
-  height: 100%;
+  line-height: 2rem;
   margin-left: 360px;
+  min-height: 100%;
 }
 
 .tech-catalog {

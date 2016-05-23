@@ -8,15 +8,19 @@ var directorySchema = new Schema({
   // Blog Id
   blogId: Schema.Types.ObjectId,
 
-	// 用户昵称
+	// 年
   year: Number,
 
-  // 邮箱
+  // 月
   month: Number,
 
-  // 日期
+  // 日
   day: Number,
 
-  // 内容
+  // 时间
   time: String
 });
+
+module.exports = {
+  Directory: mongoose.model('Directory', directorySchema)
+}
