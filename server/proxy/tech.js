@@ -5,10 +5,10 @@ var Util = require('../util/util.js');
 var Blog = require('../model/tech.js').Blog;
 var DB = require('../db/db.js').db;
 
-var directoryProxy = require('./directory.js');
-
 function save(data, callback) {
   var blogTemp = new Blog(data);
+  var directoryProxy = require('./directory.js');
+
   return blogTemp.save(function(err, product, numAffected) {
     if(err) {
     	callback(err);
@@ -17,7 +17,9 @@ function save(data, callback) {
 
     directoryProxy.save({
     	blogId: product._id,
-    	datetime: product.date
+      blogTitle: product.title,
+      blogAuthor: product.author,
+    	date: product.date
     }, callback);
   });
 }

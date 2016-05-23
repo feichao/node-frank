@@ -10,52 +10,18 @@
 		</header>
 		<!-- 动态生成目录 -->
 		<ul class="tech-catalog">
-			<li>
-				<h3>2016</h3>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<h3>2015</h3>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/">Home</a>
-					</li>
-				</ul>
-			</li>
+			<% for(var dir in directory) { %>
+				<li>
+					<h3><%= dir %></h3>
+					<ul>
+					<% directory[dir].forEach(function(d) { %>
+						<li>
+							<a href="<%= d.href %>"><%= d.title %><%= d.author %><%= d.date %></a>
+						</li>
+					<% }) %>
+					</ul>
+				</li>	
+			<% } %>
 		</ul>
 	</div>
 	<!-- 拉取具体内容 -->

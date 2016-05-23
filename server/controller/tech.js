@@ -3,6 +3,8 @@
 var marked = require('marked');
 var techProxy = require('../proxy/tech.js');
 
+var directoryProxy = require('../proxy/directory.js');
+
 /**
  * 获取文章内容
  */
@@ -15,11 +17,19 @@ function getTech(req, res, next) {
 			}
 
 			doc.body = marked(doc.body);
-			res.render('tech', { title: doc.title, blog: doc });
+			res.render('tech', { 
+				title: doc.title,
+				directory: directoryProxy.DirectoryData,
+				blog: doc 
+			});
 		});
 	} else {
 		//todo render newest blog
-		res.render('tech', { title: 'Welcome', blog: '' });
+		res.render('tech', { 
+			title: 'Welcome',
+			directory: directoryProxy.DirectoryData,
+			blog: '' 
+		});
 	}
 }
 
@@ -45,7 +55,10 @@ function postNewTech(req, res, next) {
 			return next(err);
 		}
 
-		res.render('tech', { title: 'Welcome', blog: '' });
+		res.render('tech', { 
+			title: 'Welcome', 
+			directory: directoryProxy.DirectoryData,
+			blog: '' });
 	});
 }
 

@@ -8,6 +8,12 @@ var directorySchema = new Schema({
   // Blog Id
   blogId: Schema.Types.ObjectId,
 
+  // Blog title
+  blogTitle: String,
+
+  // Blog author
+  blogAuthor: String,
+
 	// 年
   year: Number,
 
