@@ -1,12 +1,9 @@
 html, body {
 	background-color: #4B4B49;
-  font: 15px "Roboto";
+  font: 16px "Roboto";
   height: 100%;
   margin: 0;
   text-rendering: geometricPrecision;
-}
-
-* {
 }
 
 a {

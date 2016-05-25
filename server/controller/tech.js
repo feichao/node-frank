@@ -1,35 +1,48 @@
 'use strict';
 
 var marked = require('marked');
+var highlight = require('highlight.js');
+
+var Util = require('../util/util.js');
 var techProxy = require('../proxy/tech.js');
 
-var directoryProxy = require('../proxy/directory.js');
+marked.setOptions({
+  highlight: function (code) {
+    return highlight.highlightAuto(code).value;
+  }
+});
 
 /**
  * 获取文章内容
  */
 function getTech(req, res, next) {
 	var id = req.params[0];
+	var directories = techProxy.getDirectories();
+
 	if(id) {
 		techProxy.findById(id, function(err, doc) {
 			if(err || !doc) {
 				return next(err);
 			}
 
-			doc.body = marked(doc.body);
 			res.render('tech', { 
 				title: doc.title,
-				directory: directoryProxy.DirectoryData,
-				blog: doc 
+				directory: directories,
+				blog: {
+					title: doc.title,
+					author: doc.author,
+					category: doc.category,
+					tags: doc.tags,
+					date: Util.getDateTime(doc.date),
+					update: Util.getDateTime(doc.update),
+					body: marked(doc.body)
+				}
 			});
+
 		});
 	} else {
-		//todo render newest blog
-		res.render('tech', { 
-			title: 'Welcome',
-			directory: directoryProxy.DirectoryData,
-			blog: '' 
-		});
+		var lastestHref = directories && directories[0] && directories[0][0] && directories[0][0].href || '/';
+		res.redirect(lastestHref);
 	}
 }
 
@@ -55,10 +68,7 @@ function postNewTech(req, res, next) {
 			return next(err);
 		}
 
-		res.render('tech', { 
-			title: 'Welcome', 
-			directory: directoryProxy.DirectoryData,
-			blog: '' });
+		res.redirect('/tech');
 	});
 }
 

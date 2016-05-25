@@ -25,9 +25,72 @@
 .content {
   background-color: white;
   border: 1px solid transparent;
-  line-height: 2rem;
+  line-height: 1.6rem;
   margin-left: 360px;
   min-height: 100%;
+  overflow: hidden;
+  padding: 10px 20px;
+}
+
+.content > .title {
+  margin-bottom: 0;
+}
+
+.content > hr {
+  border-color: #eee;
+  border-style: dashed;
+}
+
+.content > .info {
+  border-bottom: 1px dashed #eee;
+  color: #aaa;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.content > .info > .split {
+  margin: 0 5px;
+}
+
+.content > .info > .category {
+  float: right;
+}
+
+.content .other-info {
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.content .tags {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+}
+
+.content .tags li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.content .tags a {
+  color: #4B4B49;
+  font-size: 0.8rem;
+}
+
+.content .connect-me-tech {
+  float: right;
+  margin: 5px;
+  padding: 5px;
+}
+
+.content .connect-me-tech li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.content .connect-me-tech a {
+  color: #4B4B49;
 }
 
 .tech-catalog {
@@ -36,13 +99,33 @@
 }
 
 .tech-catalog > li {
-  margin: 40px 0;
+  margin: 30px 0;
 }
 
 .tech-catalog > li > ul {
   padding-left: 20px;
 }
 
+.tech-catalog > li > h3 {
+  margin: 10px 0;
+}
+
 .tech-catalog > li > ul > li {
-  line-height: 2rem;
+  border-bottom: 1px dashed #666;
+  line-height: 1.6rem;
+  padding: 2px 0;
+}
+
+.tech-catalog > li > ul > li > a {
+  display: block;
+}
+
+.tech-catalog > li > ul > li > a span {
+  color: #aaa;
+  font-size: 0.6rem;
+  line-height: 1rem;
+}
+
+.tech-catalog > li > ul > li > a span + span {
+  float: right;
 }

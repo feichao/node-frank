@@ -10,29 +10,78 @@
 		</header>
 		<!-- 动态生成目录 -->
 		<ul class="tech-catalog">
-			<% for(var dir in directory) { %>
+			<% directory.forEach(function(dir) { %>
 				<li>
-					<h3><%= dir %></h3>
+					<h3><%= dir[0].year %></h3>
 					<ul>
-					<% directory[dir].forEach(function(d) { %>
+					<% dir.forEach(function(d) { %>
 						<li>
-							<a href="<%= d.href %>"><%= d.title %><%= d.author %><%= d.date %></a>
+							<a href="<%= d.href %>">
+								<%= d.title %>
+								<div>
+									<span><%= d.date %></span>
+									<span><%= d.author %></span>
+								</div>
+							</a>
 						</li>
 					<% }) %>
 					</ul>
 				</li>	
-			<% } %>
+			<% }) %>
 		</ul>
 	</div>
 	<!-- 拉取具体内容 -->
 	<div class="content">
-		<h2><%= blog.title %></h2>
-		<p>
-			<span><%= blog.author %></span>
-			<span><%= blog.date %></span>
-			<span><%= blog.update %></span>
+		<h2 class="title"><%= blog.title %></h2>
+		<p class="info">
+			<span class="author">作者：<%= blog.author %></span>
+			<span class="split">|</span>
+			<span class="create">发表日期：<%= blog.date %></span>
+			<span class="split">|</span>
+			<span class="update">更新日期：<%= blog.update %></span>
+			<span class="category">分类：<%= blog.category %></span>
 		</p>
 		<%- blog.body %>
+		<hr>
+		<hr>
+		<div class="other-info">
+			<ul class="tags">
+				<% blog.tags.forEach(function(t) { %>
+					<li>
+						<a href="<%= t %>">#<%= t %></a>
+					</li>
+				<% }) %>
+			</ul>
+			<ul class="connect-me-tech">
+				<li>
+					<a href="https://github.com/feichao" target="_blank">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/feichao" target="_blank">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/feichao" target="_blank">
+						<i class="fa fa-linkedin" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/feichao" target="_blank">
+						<i class="fa fa-weibo" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/feichao" target="_blank">
+						<i class="fa fa-weixin" aria-hidden="true"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<hr>
+		<hr>
 	</div>
 </div>
 <% include ./footer %>

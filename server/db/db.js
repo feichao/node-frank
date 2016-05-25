@@ -1,7 +1,9 @@
 'use strict';
 
+var config = require('../../config.js');
+
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/0xfc');
+mongoose.connect(config.mongoose.url);
 
 var db = mongoose.connection;
 db.on('error', function(error) {
