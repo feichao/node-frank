@@ -114,6 +114,7 @@
   border-bottom: 1px dashed #666;
   line-height: 1.6rem;
   padding: 2px 0;
+  position: relative;
 }
 
 .tech-catalog > li > ul > li > a {
@@ -128,4 +129,8 @@
 
 .tech-catalog > li > ul > li > a span + span {
   float: right;
+}
+
+.tech-catalog > li > ul > li .summary {
+  position: absolute;
 }

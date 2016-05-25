@@ -14,6 +14,9 @@ var blogSchema = new Schema({
   // 分类
   category: Number,
 
+  // 摘要
+  summary: String,
+
   // 内容
   body: String,
 

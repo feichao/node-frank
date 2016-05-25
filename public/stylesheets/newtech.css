@@ -37,8 +37,15 @@
   box-sizing: border-box;
   height: auto;
   line-height: 1.5rem;
-  min-height: 500px;
   padding: 8px 10px;
   resize: none;
   width: 100%;
+}
+
+#new-tech-page > form > label > textarea[name=summary] {
+  min-height: 200px;
+}
+
+#new-tech-page > form > label > textarea[name=body] {
+  min-height: 500px;
 }

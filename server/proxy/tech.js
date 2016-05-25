@@ -1,11 +1,19 @@
 'use strict';
 
+var marked = require('marked');
+
 var Util = require('../util/util.js');
 
 var Blog = require('../model/tech.js').Blog;
 var DB = require('../db/db.js').db;
 
 var Directories = [];
+
+marked.setOptions({
+  highlight: function (code) {
+    return highlight.highlightAuto(code).value;
+  }
+});
 
 generateDirectories();
 
@@ -63,6 +71,7 @@ function generateDirectories(callback) {
 					author: d.author,
 					date: Util.getDateTime(d.date),
           year: year,
+          summary: marked(d.summary || ''),
 					href: '/tech/0/' + d._id
 				});
 				
