@@ -1,7 +1,33 @@
+$primary-color-hover: rgb(0, 30, 123);
+$primary-inverse-color: #ffffff;
+$not-important-color: #aaaaaa;
+$grey-color: #cccccc;
+$deep-grey-color: #999;
+$deeper-grey-color: #666;
+$deepest-grey-color: #333;
+$light-grey-color: #f0f0f0;
+$warning-color: #dd514c;
+$warning-color-hover: #c62b26;
+$default-color: #e6e6e6;
+$default-color-hover: #c7c7c7;
+
+$primary-bg-color: #4B4B49;
+$primary-color: #4B4B49;
+$light-grey-color: #eee;
+$light-color: white;
+
+$big-font: 3rem;
+$middle-font: 1.5rem;
+
+@import 'base';
+@import 'index';
 @import 'tech';
 
-a {
-	.a {
-		padding: 110px;
-	}
+.connect-me {
+	font-size: 1.5rem;
+
+	li {
+		display: inline-block;
+		margin: 0 10px;
+	}	
 }

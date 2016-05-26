@@ -1,0 +1,200 @@
+html,
+body {
+  background-color: $primary-bg-color;
+  font: 16px "Roboto";
+  height: 100%;
+  margin: 0;
+  text-rendering: geometricPrecision;
+}
+
+img {
+  border-style: none;
+  width: 100%;
+}
+
+a {
+  outline: none !important;
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $light-grey-color;
+  margin: 0;
+}
+
+h3,
+h4,
+th {
+  font-weight: 500;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.clear-fix:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.of-hidden {
+  overflow: hidden;
+}
+
+.cur-point {
+  cursor: pointer;
+}
+
+.bx-s {
+  box-sizing: border-box;
+}
+
+.common-ul {
+  list-style: none;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.mgl1 {
+  margin-left: 10px !important;
+}
+
+.mgl2 {
+  margin-left: 20px !important;
+}
+
+.mgl3 {
+  margin-left: 30px !important;
+}
+
+.mgl4 {
+  margin-left: 40px !important;
+}
+
+.mgr1 {
+  margin-right: 10px !important;
+}
+
+.mgr2 {
+  margin-right: 20px !important;
+}
+
+.mgr3 {
+  margin-right: 30px !important;
+}
+
+.mgr4 {
+  margin-right: 40px !important;
+}
+
+.mgt1 {
+  margin-top: 10px !important;
+}
+
+.mgt2 {
+  margin-top: 20px !important;
+}
+
+.mgt3 {
+  margin-top: 30px !important;
+}
+
+.mgt4 {
+  margin-top: 40px !important;
+}
+
+.mgb1 {
+  margin-bottom: 10px !important;
+}
+
+.mgb2 {
+  margin-bottom: 20px !important;
+}
+
+.mgb3 {
+  margin-bottom: 30px !important;
+}
+
+.mgb4 {
+  margin-bottom: 40px !important;
+}
+
+.pdl1 {
+  padding-left: 10px !important;
+}
+
+.pdl2 {
+  padding-left: 20px !important;
+}
+
+.pdl3 {
+  padding-left: 30px !important;
+}
+
+.pdl4 {
+  padding-left: 40px !important;
+}
+
+.pdr1 {
+  padding-right: 10px !important;
+}
+
+.pdr2 {
+  padding-right: 20px !important;
+}
+
+.pdr3 {
+  padding-right: 30px !important;
+}
+
+.pdr4 {
+  padding-right: 40px !important;
+}
+
+.pdt1 {
+  padding-top: 10px !important;
+}
+
+.pdt2 {
+  padding-top: 20px !important;
+}
+
+.pdt3 {
+  padding-top: 30px !important;
+}
+
+.pdt4 {
+  padding-top: 40px !important;
+}
+
+.pdb1 {
+  padding-bottom: 10px !important;
+}
+
+.pdb2 {
+  padding-bottom: 20px !important;
+}
+
+.pdb3 {
+  padding-bottom: 30px !important;
+}
+
+.pdb4 {
+  padding-bottom: 40px !important;
+}

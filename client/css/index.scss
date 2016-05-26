@@ -1,0 +1,41 @@
+#index-page-wrap {
+	background: url('/images/home_bg.jpg');
+	background-size: cover;
+	box-sizing: border-box;
+	color: $light-color;
+	height: 100%;
+	padding: 10px 60px;
+
+	& > .title {
+		font-size: $big-font;
+	  font-weight: 100;
+	}
+
+	& a {
+		color: $light-color;
+	}
+
+
+	ul.nav {
+		font-size: $middle-font;
+		width: 0;
+
+		& > li {
+			float: left;
+			margin: 25px 0;
+			transition: all .3s;
+
+			&:hover {
+				transform: scale3d(1.35, 1.35, 1);
+	  		transform-origin: 0 0;
+			}
+		}
+	}
+
+	& > .connect-me {
+		background: rgba(0, 0, 0, 0.1);
+		bottom: 60px;
+		margin: 0 -10px;
+		position: fixed;
+	}
+}
