@@ -64,7 +64,7 @@
 		  font-size: 1.2rem;
 		  overflow: hidden;
 
-		  & > .tags {
+		  & > .tags, & > .connect-me {
 			  margin: 5px;
 			  padding: 5px;
 
@@ -74,6 +74,14 @@
 			  }
 			}
 
+			& > .connect-me {
+				li {
+					margin-left: 20px;
+				}
+				a {
+  				font-size: 1.35rem;
+			  }
+			}
 		}
 
 		blockquote {
@@ -98,20 +106,4 @@
 			padding-left: 1rem;
 		}
 	}
-
-.content .connect-me-tech {
-  float: right;
-  margin: 5px;
-  padding: 5px;
-}
-
-.content .connect-me-tech li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.content .connect-me-tech a {
-  color: #4B4B49;
-}
-
 }

@@ -234,12 +234,16 @@ th {
       background: rgba(0, 0, 0, 0.05);
       font-size: 1.2rem;
       overflow: hidden; }
-      #tech-page-wrap > .content > .other-info > .tags {
+      #tech-page-wrap > .content > .other-info > .tags, #tech-page-wrap > .content > .other-info > .connect-me {
         margin: 5px;
         padding: 5px; }
-        #tech-page-wrap > .content > .other-info > .tags a {
+        #tech-page-wrap > .content > .other-info > .tags a, #tech-page-wrap > .content > .other-info > .connect-me a {
           color: #4B4B49;
           font-size: 0.75rem; }
+      #tech-page-wrap > .content > .other-info > .connect-me li {
+        margin-left: 20px; }
+      #tech-page-wrap > .content > .other-info > .connect-me a {
+        font-size: 1.35rem; }
     #tech-page-wrap > .content blockquote {
       background-color: #f8f8f8;
       border-left: 5px solid #4B4B49;
@@ -254,15 +258,6 @@ th {
       padding: 10px; }
     #tech-page-wrap > .content > ol, #tech-page-wrap > .content > ul {
       padding-left: 1rem; }
-  #tech-page-wrap .content .connect-me-tech {
-    float: right;
-    margin: 5px;
-    padding: 5px; }
-  #tech-page-wrap .content .connect-me-tech li {
-    display: inline-block;
-    margin: 0 10px; }
-  #tech-page-wrap .content .connect-me-tech a {
-    color: #4B4B49; }
 
 #new-tech-wrap > form {
   margin: auto;
