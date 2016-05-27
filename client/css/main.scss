@@ -18,16 +18,11 @@ $light-color: white;
 
 $big-font: 3rem;
 $middle-font: 1.5rem;
+$min-font: 0.75rem;
+
+$left-side-width: 360px;
 
 @import 'base';
 @import 'index';
 @import 'tech';
-
-.connect-me {
-	font-size: 1.5rem;
-
-	li {
-		display: inline-block;
-		margin: 0 10px;
-	}	
-}
+@import 'newtech';

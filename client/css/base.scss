@@ -19,7 +19,7 @@ a {
 
 hr {
   border: none;
-  border-top: 1px solid $light-grey-color;
+  border-top: 1px dashed $light-grey-color;
   margin: 0;
 }
 
@@ -65,6 +65,12 @@ th {
 
 .common-ul {
   list-style: none;
+}
+
+.ul-inline {
+  & > li {
+    display: inline-block;
+  }
 }
 
 .no-padding {
@@ -117,6 +123,10 @@ th {
 
 .mgt4 {
   margin-top: 40px !important;
+}
+
+.mgb0 {
+  margin-bottom: 0 !important;
 }
 
 .mgb1 {

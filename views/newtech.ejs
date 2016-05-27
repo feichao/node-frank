@@ -1,33 +1,32 @@
 <% include ./header %>
-<link rel="stylesheet" type="text/css" href="/stylesheets/newtech.css" />
-<div id="new-tech-page">
-	<form action="/tech/new" method="post">
-		<label>
-			<span>标题</span>
+<div id="new-tech-wrap">
+	<form action="/tech/new" method="post" class="mgb2">
+		<label class="block">
+			<span class="mgr1">标题</span>
 			<input type="text" name="title" required="required" placeholder="输入标题">
 		</label>
-		<label>
-			<span>作者</span>
+		<label class="block">
+			<span class="mgr1">作者</span>
 			<input type="text" name="author" required="required" placeholder="输入作者">
 		</label>
-		<label>
-			<span>标签</span>
+		<label class="block">
+			<span class="mgr1">标签</span>
 			<input type="text" name="tags" required="required"  placeholder="输入标签，空格分隔">
 		</label>
-		<label>
-			<span>分类</span>
+		<label class="block">
+			<span class="mgr1">分类</span>
 			<select name="category">
 				<option value="0">Tech</option>
 				<option value="1">Story</option>
 			</select>
 		</label>
-		<label>
+		<label class="block">
 			<textarea name='summary' required="required"></textarea>
 		</label>
-		<label>
+		<label class="block">
 			<textarea name='body' required="required"></textarea>
 		</label>
-		<input class="button" type="submit" value="保存">
+		<button class="button mgr2" type="submit">保存</button>
 		<a class="button" href="/tech">返回</a>
 	</form>
 </div>

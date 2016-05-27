@@ -1,0 +1,49 @@
+#new-tech-wrap {
+  & > form {
+    margin: auto;
+    max-width: 800px;
+    width: 80%;
+
+    .block {
+      display: block;
+      color: $light-color;
+      margin: 20px 0;
+
+      & > * {
+        border: none;
+        border-radius: 2px;
+      }
+    }
+
+    input {
+      padding: 8px 10px;
+      width: 300px;
+    }
+
+    .button {
+      background: $light-color;
+      border: none;
+      border-radius: 2px;
+      color: black;
+      display: inline-block;
+      font-size: 1rem;
+      padding: 10px 30px;
+    }
+
+    textarea {
+      height: auto;
+      line-height: 1.5rem;
+      padding: 8px 10px;
+      resize: none;
+      width: 100%;
+
+      &[name=summart] {
+        min-height: 200px;
+      }
+
+      &[name=body] {
+        min-height: 500px;
+      }
+    }
+  }
+}

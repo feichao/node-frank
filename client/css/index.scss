@@ -35,7 +35,12 @@
 	& > .connect-me {
 		background: rgba(0, 0, 0, 0.1);
 		bottom: 60px;
-		margin: 0 -10px;
+		font-size: 2rem;
+		padding: 10px 20px;
 		position: fixed;
+
+		& > li {
+			margin: 10px;
+		}
 	}
 }

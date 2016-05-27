@@ -1,26 +1,23 @@
 <% include ./header %>
-<link rel="stylesheet" type="text/css" href="/stylesheets/tech.css" />
-<div id="tech-page-container">
-	<div class="left-nav">
-		<header>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/about">About</a></li>
-			</ul>
-		</header>
+<div id="tech-page-wrap">
+	<div class="left-side bx-s">
+		<ul class="top-nav common-ul ul-inline no-padding">
+			<li class="mgr2"><a href="/">Home</a></li>
+			<li><a href="/about">About</a></li>
+		</ul>
 		<!-- 动态生成目录 -->
-		<ul class="tech-catalog">
+		<ul class="tech-catalog common-ul no-padding mgt4">
 			<% directory.forEach(function(dir) { %>
-				<li>
+				<li class="mgt3 mgb3">
 					<h3><%= dir[0].year %></h3>
-					<ul>
+					<ul class="common-ul pdl2">
 					<% dir.forEach(function(d) { %>
 						<li>
 							<a href="<%= d.href %>">
 								<%= d.title %>
 								<div>
 									<span><%= d.date %></span>
-									<span><%= d.author %></span>
+									<span class="pull-right"><%= d.author %></span>
 								</div>
 							</a>
 							<div class="summary">
@@ -33,24 +30,25 @@
 			<% }) %>
 		</ul>
 	</div>
+
+
+
 	<!-- 拉取具体内容 -->
 	<div class="content">
-		<h2 class="title"><%= blog.title %></h2>
-		<p class="info">
-			<span class="author">作者：<%= blog.author %></span>
-			<span class="split">|</span>
-			<span class="create">发表日期：<%= blog.date %></span>
-			<span class="split">|</span>
-			<span class="update">更新日期：<%= blog.update %></span>
-			<span class="category">分类：<%= blog.category %></span>
+		<h2 class="mgb0"><%= blog.title %></h2>
+		<p class="base-info">
+			<span class="mgr2">作者：<%= blog.author %></span>
+			<span class="mgr2">发表日期：<%= blog.date %></span>
+			<span class="mgr2">更新日期：<%= blog.update %></span>
+			<span class="pull-right">分类：<%= blog.category %></span>
 		</p>
 		<%- blog.body %>
 		<hr>
 		<hr>
 		<div class="other-info">
-			<ul class="tags">
+			<ul class="common-ul ul-inline pull-left tags">
 				<% blog.tags.forEach(function(t) { %>
-					<li>
+					<li class="mgr1">
 						<a href="<%= t %>">#<%= t %></a>
 					</li>
 				<% }) %>
