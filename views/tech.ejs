@@ -10,28 +10,26 @@
 			<% directory.forEach(function(dir) { %>
 				<li class="mgt3 mgb3">
 					<h3><%= dir[0].year %></h3>
-					<ul class="common-ul pdl2">
-					<% dir.forEach(function(d) { %>
-						<li>
-							<a href="<%= d.href %>">
-								<%= d.title %>
-								<div>
-									<span><%= d.date %></span>
-									<span class="pull-right"><%= d.author %></span>
-								</div>
-							</a>
-							<div class="summary">
-								<%- d.summary %>
-							</div>
-						</li>
-					<% }) %>
+					<ul class="list-year common-ul pdl2">
+                        <% dir.forEach(function(d) { %>
+                            <li>
+                                <a href="<%= d.href %>">
+                                    <span class="title"><%= d.title %></span>
+                                    <div class="other">
+                                        <span><%= d.date %></span>
+                                        <span class="pull-right"><%= d.author %></span>
+                                    </div>
+                                </a>
+                                <div class="summary">
+                                    <%- d.summary %>
+                                </div>
+                            </li>
+                        <% }) %>
 					</ul>
-				</li>	
+				</li>
 			<% }) %>
 		</ul>
 	</div>
-
-
 
 	<!-- 拉取具体内容 -->
 	<div class="content pdb3">
@@ -45,7 +43,7 @@
 		<%- blog.body %>
 		<hr>
 		<hr>
-		<div class="other-info">
+		<div class="other-info mgt2">
 			<ul class="common-ul ul-inline pull-left tags">
 				<% blog.tags.forEach(function(t) { %>
 					<li class="mgr1">
@@ -83,6 +81,9 @@
 		</div>
 		<hr>
 		<hr>
+	</div>
+	<div id="global-summary">
+
 	</div>
 </div>
 <% include ./footer %>

@@ -2,108 +2,122 @@
   height: 100%;
 
   & > .left-side {
-	  background-color: $primary-bg-color;
-	  height: 100%;
-	  overflow-y: auto;
-	  padding: 10px 30px;
-	  position: fixed;
-	  width: $left-side-width;
+    background-color: $primary-bg-color;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px 30px;
+    position: fixed;
+    width: $left-side-width;
 
-	  & > .top-nav {
-		  font-size: $middle-font;
+    & > .top-nav {
+      font-size: $middle-font;
 
-		  a {
-		  	color: $light-color; 
-		  }
-		}
+      a {
+        color: $light-color;
+      }
+    }
 
-		& > .tech-catalog {
-		  color: $light-color;
+    & > .tech-catalog {
+      color: $light-color;
 
-		  ul > li {
-		  	border-bottom: 1px dashed $deeper-grey-color;
-			  line-height: 1.6rem;
-			  padding: 2px 0;
-			  position: relative;
+      ul.list-year > li {
+        border-bottom: 1px dashed $deeper-grey-color;
+        line-height: 1.6rem;
+        padding: 2px 0;
+        position: relative;
 
-			  & > a {
-			  	color: $light-color;
-					display: block;
-					
-					span{
-						color: $not-important-color;
-					  font-size: $min-font;
-					  line-height: 1rem;
-					}
-			  }
+        & > a {
+          color: $light-color;
+          display: block;
 
-			  .summary {
-			  	position: absolute;
-			  }
-		  }
-		}
-	}
+          .other {
+            span {
+              color: $not-important-color;
+              font-size: $min-font;
+              line-height: 1rem;
+            }
+          }
+        }
 
-	& > .content {
-	  background-color: $light-color;
-	  border: 1px solid transparent;
-	  line-height: 1.6rem;
-	  margin-left: $left-side-width;
-	  min-height: 100%;
-	  overflow: hidden;
-	  padding: 10px 20px;
+        .summary {
+          display: none;
+        }
+      }
+    }
+  }
 
-	  & > .base-info {
-		  border-bottom: 1px dashed #eee;
-		  color: $not-important-color;
-		  font-size: $min-font;
-		}
+  & > .content {
+    background-color: $light-color;
+    border: 1px solid transparent;
+    line-height: 1.6rem;
+    margin-left: $left-side-width;
+    min-height: 100%;
+    overflow: hidden;
+    padding: 10px 20px;
 
-		& > .other-info {
-		  background: rgba(0, 0, 0, 0.05);
-		  font-size: 1.2rem;
-		  overflow: hidden;
+    & > .base-info {
+      border-bottom: 1px dashed #eee;
+      color: $not-important-color;
+      font-size: $min-font;
+    }
 
-		  & > .tags, & > .connect-me {
-			  margin: 5px;
-			  padding: 5px;
+    & > .other-info {
+      background: rgba(0, 0, 0, 0.05);
+      font-size: 1.2rem;
+      overflow: hidden;
 
-			  a {
-			  	color: $primary-color;
-  				font-size: $min-font;
-			  }
-			}
+      & > .tags, & > .connect-me {
+        margin: 5px;
+        padding: 5px;
 
-			& > .connect-me {
-				li {
-					margin-left: 20px;
-				}
-				a {
-  				font-size: 1.35rem;
-			  }
-			}
-		}
+        a {
+          color: $primary-color;
+          font-size: $min-font;
+        }
+      }
 
-		blockquote {
-		  background-color: #f8f8f8;
-		  border-left: 5px solid #4B4B49;
-		  margin: 10px 0 0;
-		  padding: 0.8rem 1rem;
+      & > .connect-me {
+        li {
+          margin-left: 20px;
+        }
+        a {
+          font-size: 1.35rem;
+        }
+      }
+    }
 
-		  & > p {
-		    margin: 0;
-		  }
-		}
+    blockquote {
+      background-color: #f8f8f8;
+      border-left: 5px solid #4B4B49;
+      margin: 10px 0 0;
+      padding: 0.8rem 1rem;
 
-		pre code {
-		  background-color: #f2f2f2;
-		  display: block;
-		  overflow-x: auto;
-		  padding: 10px;
-		}
+      & > p {
+        margin: 0;
+      }
+    }
 
-		& > ol, & > ul {
-			padding-left: 1rem;
-		}
-	}
+    pre code {
+      background-color: #f2f2f2;
+      display: block;
+      overflow-x: auto;
+      padding: 10px;
+    }
+
+    & > ol, & > ul {
+      padding-left: 1rem;
+    }
+  }
+
+  #global-summary {
+    background: $light-color;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    color: $deepest-grey-color;
+    display: none;
+    max-width: 480px;
+    min-width: 360px;
+    padding: 10px;
+    position: fixed;
+  }
 }
