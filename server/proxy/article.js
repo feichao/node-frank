@@ -42,7 +42,6 @@ function generateDirectories(callback) {
   
   var query = find().sort({date: -1});
   query.exec(function(err, docs) {
-  	console.log(docs);
     if(err || !docs) {
 			if(typeof callback === 'function') {
 				callback(err);
@@ -61,8 +60,9 @@ function generateDirectories(callback) {
 					author: d.author,
 					date: DateTime.datetime(d.date, 'YYYY-MM-dd HH:mm:ss'),
           year: year,
+          category: d.category,
           summary: Marked(d.summary || ''),
-					href: '/article/0/' + d._id
+					href: (d.category === 0 ? '/article/0/' : '/story/0/') + d._id
 				});
 				
 				if(Directories.indexOf(temp[year]) === -1) {

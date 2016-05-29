@@ -6,12 +6,22 @@ var DateTime = require('../util/datetime.js');
 var Config = require('../../config.js');
 var ArticleProxy = require('../proxy/article.js');
 
+var category = 0;
+
 /**
  * 获取文章内容
  */
 function getArticle(req, res, next) {
+	category = category || 0;
+
 	var id = req.params[0];
-	var directories = ArticleProxy.getDirectories();
+	var directories = ArticleProxy.getDirectories().map(function(d) {
+		return d.filter(function(dd) {
+			return dd.category === category;
+		});
+	}).filter(function(d) {
+		return d.length > 0;
+	});
 
 	var pages = Config.pages.filter(function(p, i) { return i ===0 || i === 3; });
 	var connects = Config.connects;
@@ -45,17 +55,21 @@ function getArticle(req, res, next) {
 	}
 }
 
+function getArticleStory(req, res, next) {
+	category = 1;
+	getArticle(req, res, next);
+	category = 0;
+}
+
 /**
  * 新建文章页面
- * get /tech/new
  */
 function createArticlePage(req, res, next) {
-	res.render('newarticle', { title: 'New Tech' });
+	res.render('newarticle', { title: '发布文章' });
 }
 
 /**
  * 新建文章
- * post /tech/new
  */
 function createArticle(req, res, next) {
 	req.body.tags = (req.body.tags || '').split(' ').map(function(t) {
@@ -67,12 +81,13 @@ function createArticle(req, res, next) {
 			return next(err);
 		}
 
-		res.redirect('/article');
+		res.redirect(req.body.category === 0 ? '/article' : '/story');
 	});
 }
 
 module.exports = {
 	getArticle: getArticle,
+	getArticleStory: getArticleStory,
 	createArticlePage: createArticlePage,
 	createArticle: createArticle
 };
