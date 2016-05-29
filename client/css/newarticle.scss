@@ -16,8 +16,17 @@
     }
 
     input {
+      font-size: 1rem;
       padding: 8px 10px;
       width: 300px;
+    }
+    
+    input[name=authcode] {
+      width: 100px;
+    }
+
+    select {
+      font-size: 1rem;
     }
 
     .button {
@@ -31,18 +40,19 @@
     }
 
     textarea {
+      font-size: 1rem;
       height: auto;
       line-height: 1.5rem;
       padding: 8px 10px;
       resize: none;
       width: 100%;
 
-      &[name=summart] {
-        min-height: 200px;
+      &[name=summary] {
+        min-height: 150px;
       }
 
       &[name=body] {
-        min-height: 500px;
+        min-height: 400px;
       }
     }
   }

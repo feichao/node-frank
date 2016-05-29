@@ -7,7 +7,13 @@ var path = require('path');
 module.exports = {
   context: path.join(__dirname, './client/'),
   entry: {
-    scripts: ['./js/main.js', './js/index.js', './js/article.js']
+    scripts: [
+      './js/main.js', 
+      './js/index.js', 
+      './js/article.js',
+      './js/newarticle.js',
+      './js/ajax.js'
+    ]
   },
   output: {
     path: path.join(__dirname, './public/'),

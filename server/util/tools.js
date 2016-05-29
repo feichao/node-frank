@@ -24,7 +24,19 @@ function getArrRandomVal(array) {
 	return '';
 }
 
+function getAuthCode(length, phone) {
+	var time = new Date().valueOf();
+	var str = '123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
+
+	var len = length || 5;
+
+	return [0, 0, 0, 0, 0].map(function(c) {
+		return str[Math.floor(Math.random() * 59)];
+	}).join('');
+}
+
 module.exports = {
 	gCallback: gCallback,
-	getArrRandomVal: getArrRandomVal
+	getArrRandomVal: getArrRandomVal,
+	getAuthCode: getAuthCode
 };

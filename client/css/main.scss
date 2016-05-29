@@ -10,23 +10,30 @@ $warning-color: #dd514c;
 $warning-color-hover: #c62b26;
 $default-color: #e6e6e6;
 $default-color-hover: #c7c7c7;
-
 $primary-bg-color: #4B4B49;
 $primary-color: #4B4B49;
 $light-grey-color: #eee;
 $light-color: white;
-
 $big-font: 3rem;
 $middle-font: 1.5rem;
 $min-font: 0.75rem;
-
 $left-side-width: 360px;
-
 @import 'base';
 @import 'index';
 @import 'article';
 @import 'newarticle';
 
 body {
-	min-width: 1000px;
+  min-width: 1000px;
+}
+
+#toast {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  color: white;
+  display: none;
+  padding: 0 10px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
 }

@@ -8,7 +8,7 @@ function isPhone(num) {
 
 function isIllegal(num) {
 	var phoneList = ALiDaYu.phoneList;
-	if(!phoneList || !(phoneList instanceOf Array)) {
+	if(!phoneList || !(phoneList instanceof Array)) {
 		console.log('请在 config.js 中配置允许接收验证码的手机号列表');
 		return;
 	}

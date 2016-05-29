@@ -50,7 +50,7 @@ function getArticle(req, res, next) {
  * get /tech/new
  */
 function createArticlePage(req, res, next) {
-	res.render('newtech', { title: 'New Tech' });
+	res.render('newarticle', { title: 'New Tech' });
 }
 
 /**
