@@ -1,40 +1,20 @@
 <% include ./header %>
-<link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
 <div id="index-page-wrap">
 	<h1 class="title mgb4"><%= title %></h1>
 	<ul class="common-ul nav no-padding">
-		<li><a href="/">HOME</a></li>
-		<li><a href="/tech">TECH</a></li>
-		<li><a href="/story">STORY</a></li>
-		<li><a href="/about">ABOUT</a></li>
+		<% pages.forEach(function(p) { %>
+			<li><a href="<%= p.link %>"><%= p.text %></a></li>
+		<% }) %>
 	</ul>
 
 	<ul class="connect-me common-ul ul-inline">
-		<li>
-			<a href="https://github.com/feichao" target="_blank">
-				<i class="fa fa-facebook" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/feichao" target="_blank">
-				<i class="fa fa-github" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/feichao" target="_blank">
-				<i class="fa fa-linkedin" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/feichao" target="_blank">
-				<i class="fa fa-weibo" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href="https://github.com/feichao" target="_blank">
-				<i class="fa fa-weixin" aria-hidden="true"></i>
-			</a>
-		</li>
+		<% connects.forEach(function(c) { %>
+			<li>
+				<a href="<%= c.link %>" target="_blank" title="<%= c.title %>">
+					<i class="fa <%= c.icon %>" aria-hidden="true"></i>
+				</a>
+			</li>
+		<% }) %>
 	</ul>
 </div>
 <% include ./footer %>

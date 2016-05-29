@@ -1,25 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-var tech = require('../server/controller/tech.js');
+var IndexCtrl = require('../server/controller/index.js');
+var ArticleCtrl = require('../server/controller/article.js');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Frank Wan' });
-});
+router.get('/', IndexCtrl.getIndex);
 
-router.get('/tech(/0/:id)?', tech.getTech);
+router.get('/article(/0/:id)?', ArticleCtrl.getArticle);
+router.get('/article/new', ArticleCtrl.createArticlePage);
+router.post('/article/new', ArticleCtrl.createArticle);
 
-router.get('/tech/new', tech.getNewTech);
-router.post('/tech/new', tech.postNewTech);
+router.get('/story', IndexCtrl.getIndex);
 
-router.get('/story', function(req, res, next) {
-  res.render('index', { title: 'story' });
-});
-
-router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'about' });
-});
+router.get('/about', IndexCtrl.getIndex);
 
 
 module.exports = router;

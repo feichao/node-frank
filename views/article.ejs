@@ -1,0 +1,70 @@
+<% include ./header %>
+<div id="article-page-wrap">
+	<div class="left-side bx-s">
+		<ul class="top-nav common-ul ul-inline no-padding">
+			<% pages.forEach(function(p) { %>
+				<li class="mgr2"><a href="<%= p.link %>"><%= p.text %></a></li>
+			<% }) %>
+		</ul>
+		<!-- 动态生成目录 -->
+		<ul class="article-catalog common-ul no-padding mgt4">
+			<% directory.forEach(function(dir) { %>
+				<li class="mgt3 mgb3">
+					<h3><%= dir[0].year %></h3>
+					<ul class="list-year common-ul pdl2">
+            <% dir.forEach(function(d) { %>
+              <li>
+                <a href="<%= d.href %>">
+                  <span class="title"><%= d.title %></span>
+                  <div class="other">
+                    <span><%= d.date %></span>
+                    <span class="pull-right"><%= d.author %></span>
+                  </div>
+                </a>
+                <div class="summary">
+                	<%- d.summary %>
+                </div>
+              </li>
+            <% }) %>
+					</ul>
+				</li>
+			<% }) %>
+		</ul>
+	</div>
+
+	<!-- 拉取具体内容 -->
+	<div class="content pdb3">
+		<h2 class="mgb0"><%= blog.title %></h2>
+		<p class="base-info">
+			<span class="mgr2">作者：<%= blog.author %></span>
+			<span class="mgr2">发表日期：<%= blog.date %></span>
+			<span class="mgr2">更新日期：<%= blog.update %></span>
+			<span class="pull-right">分类：<%= blog.category %></span>
+		</p>
+		<%- blog.body %>
+		<hr class="mgt2">
+		<hr>
+		<div class="other-info">
+			<ul class="common-ul ul-inline pull-left tags">
+				<% blog.tags.forEach(function(t) { %>
+					<li class="mgr1">
+						<a href="<%= t %>">#<%= t %></a>
+					</li>
+				<% }) %>
+			</ul>
+			<ul class="connect-me common-ul ul-inline pull-right">
+				<% connects.forEach(function(c) { %>
+					<li>
+						<a href="<%= c.link %>" target="_blank" title="<%= c.title %>">
+							<i class="fa <%= c.icon %>" aria-hidden="true"></i>
+						</a>
+					</li>
+				<% }) %>
+			</ul>
+		</div>
+		<hr>
+		<hr>
+	</div>
+	<div id="global-summary"></div>
+</div>
+<% include ./footer %>

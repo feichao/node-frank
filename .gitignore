@@ -1,5 +1,5 @@
 node_modules
 .idea
 config.js
-./public/javascripts/scripts.js
-./public/stylesheets/main.min.css
+public/javascripts/scripts.js
+public/stylesheets/main.min.css

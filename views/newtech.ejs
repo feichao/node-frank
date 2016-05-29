@@ -1,6 +1,6 @@
 <% include ./header %>
-<div id="new-tech-wrap">
-	<form action="/tech/new" method="post" class="mgb2">
+<div id="new-article-wrap">
+	<form action="/article/new" method="post" class="mgb2">
 		<label class="block">
 			<span class="mgr1">标题</span>
 			<input type="text" name="title" required="required" placeholder="输入标题">
@@ -16,7 +16,7 @@
 		<label class="block">
 			<span class="mgr1">分类</span>
 			<select name="category">
-				<option value="0">Tech</option>
+				<option value="0">Article</option>
 				<option value="1">Story</option>
 			</select>
 		</label>
@@ -27,7 +27,7 @@
 			<textarea name='body' required="required"></textarea>
 		</label>
 		<button class="button mgr2" type="submit">保存</button>
-		<a class="button" href="/tech">返回</a>
+		<a class="button" href="/article">返回</a>
 	</form>
 </div>
 <% include ./footer %>

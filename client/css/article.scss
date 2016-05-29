@@ -1,6 +1,5 @@
-#tech-page-wrap {
+#article-page-wrap {
   height: 100%;
-
   & > .left-side {
     background-color: $primary-bg-color;
     height: 100%;
@@ -8,28 +7,22 @@
     padding: 10px 30px;
     position: fixed;
     width: $left-side-width;
-
     & > .top-nav {
       font-size: $middle-font;
-
       a {
         color: $light-color;
       }
     }
-
-    & > .tech-catalog {
+    & > .article-catalog {
       color: $light-color;
-
       ul.list-year > li {
         border-bottom: 1px dashed $deeper-grey-color;
         line-height: 1.6rem;
-        padding: 2px 0;
+        padding: 5px 0 0;
         position: relative;
-
         & > a {
           color: $light-color;
           display: block;
-
           .other {
             span {
               color: $not-important-color;
@@ -38,44 +31,39 @@
             }
           }
         }
-
         .summary {
           display: none;
         }
       }
     }
   }
-
   & > .content {
     background-color: $light-color;
     border: 1px solid transparent;
+    box-sizing: border-box;
     line-height: 1.6rem;
     margin-left: $left-side-width;
     min-height: 100%;
     overflow: hidden;
     padding: 10px 20px;
-
     & > .base-info {
       border-bottom: 1px dashed #eee;
       color: $not-important-color;
       font-size: $min-font;
     }
-
     & > .other-info {
       background: rgba(0, 0, 0, 0.05);
       font-size: 1.2rem;
       overflow: hidden;
-
-      & > .tags, & > .connect-me {
+      & > .tags,
+      & > .connect-me {
         margin: 5px;
         padding: 5px;
-
         a {
           color: $primary-color;
           font-size: $min-font;
         }
       }
-
       & > .connect-me {
         li {
           margin-left: 20px;
@@ -85,30 +73,26 @@
         }
       }
     }
-
     blockquote {
       background-color: #f8f8f8;
       border-left: 5px solid #4B4B49;
       margin: 10px 0 0;
       padding: 0.8rem 1rem;
-
       & > p {
         margin: 0;
       }
     }
-
     pre code {
       background-color: #f2f2f2;
       display: block;
       overflow-x: auto;
       padding: 10px;
     }
-
-    & > ol, & > ul {
+    & > ol,
+    & > ul {
       padding-left: 1rem;
     }
   }
-
   #global-summary {
     background: $light-color;
     border-radius: 2px;

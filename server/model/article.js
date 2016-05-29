@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var blogSchema = new Schema({
+var articleSchema = new Schema({
 	// 标题
   title: String,
 
@@ -42,5 +42,5 @@ var blogSchema = new Schema({
 });
 
 module.exports = {
-	Blog: mongoose.model('Blog', blogSchema)
+	article: mongoose.model('article', articleSchema)
 }

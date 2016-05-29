@@ -1,14 +1,6 @@
 'use strict';
 
-function gCallback(callback) {
-	if(typeof callback === 'function') {
-		callback.apply(null, [].slice.call(arguments, 1));
-	} else {
-		console.log('in gCallback: callback must be a function!');
-	}
-}
-
-function getDateTime(date) {
+function datetime(date, format) {
 	if(date instanceof Date) {
 	  var year = date.getFullYear();
 	  var month = (date.getMonth() + 1).toString();
@@ -30,7 +22,7 @@ function getDateTime(date) {
 	return '1970-01-01 00:00:00';
 }
 
-function getTime(date) {
+function time(date, format) {
 	if(date instanceof Date) {
 		var hour = date.getHours().toString();
 	  var min = date.getMinutes().toString();
@@ -48,7 +40,6 @@ function getTime(date) {
 }
 
 module.exports = {
-	gCallback: gCallback,
-	getDateTime: getDateTime,
-	getTime: getTime
+	datetime: datetime,
+	time: time
 };

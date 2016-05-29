@@ -24,5 +24,9 @@ $left-side-width: 360px;
 
 @import 'base';
 @import 'index';
-@import 'tech';
-@import 'newtech';
+@import 'article';
+@import 'newarticle';
+
+body {
+	min-width: 1000px;
+}

@@ -1,46 +1,48 @@
 #index-page-wrap {
-	background: url('/images/home_bg.jpg');
-	background-size: cover;
-	box-sizing: border-box;
-	color: $light-color;
-	height: 100%;
-	padding: 10px 60px;
-
-	& > .title {
-		font-size: $big-font;
-	  font-weight: 100;
-	}
-
-	& a {
-		color: $light-color;
-	}
-
-
-	ul.nav {
-		font-size: $middle-font;
-		width: 0;
-
-		& > li {
-			float: left;
-			margin: 25px 0;
-			transition: all .3s;
-
-			&:hover {
-				transform: scale3d(1.35, 1.35, 1);
-	  		transform-origin: 0 0;
-			}
-		}
-	}
-
-	& > .connect-me {
-		background: rgba(0, 0, 0, 0.1);
-		bottom: 60px;
-		font-size: 2rem;
-		padding: 10px 20px;
-		position: fixed;
-
-		& > li {
-			margin: 10px;
-		}
-	}
+  background: url('/images/home_bg.jpg');
+  background-size: cover;
+  box-sizing: border-box;
+  color: $light-color;
+  height: 100%;
+  padding: 10px 60px;
+  & > .title {
+    font-size: $big-font;
+    font-weight: 100;
+  }
+  & a {
+    color: $light-color;
+    display: block;
+  }
+  ul.nav {
+    font-size: $middle-font;
+    margin: 0 -10px;
+    & > li {
+      line-height: 3;
+      margin: 10px 0;
+      padding: 0 10px;
+      transition: all .3s;
+      width: 360px;
+      &:hover {
+        background: rgba(0, 0, 0, .1);
+        border-radius: 2px;
+      }
+    }
+  }
+  & > .connect-me {
+    background: rgba(0, 0, 0, 0.1);
+    bottom: 60px;
+    font-size: 2rem;
+    padding: 10px 20px;
+    position: fixed;
+    & > li {
+      margin: 10px;
+      a {
+        color: $default-color-hover;
+        transition: all .3s;
+        &:hover {
+          color: $light-color;
+        }
+      }
+    }
+  }
 }

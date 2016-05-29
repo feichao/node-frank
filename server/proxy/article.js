@@ -1,26 +1,21 @@
 'use strict';
 
-var marked = require('marked');
+var Marked = require('../service/marked.js').Marked;
 
-var Util = require('../util/util.js');
+var Tools = require('../util/tools.js');
+var DateTime = require('../util/datetime.js');
 
-var Blog = require('../model/tech.js').Blog;
-var DB = require('../db/db.js').db;
+var Article = require('../model/article.js').article;
+var MongoDB = require('../service/mongodb.js').mongoDB;
 
 var Directories = [];
-
-marked.setOptions({
-  highlight: function (code) {
-    return highlight.highlightAuto(code).value;
-  }
-});
 
 generateDirectories();
 
 function save(data, callback) {
-  var blogTemp = new Blog(data);
+  var article = new Article(data);
 
-  return blogTemp.save(function(err, product, numAffected) {
+  return article.save(function(err, product, numAffected) {
     if(err) {
     	callback(err);
     	return console.log('save blog error: ' + err);
@@ -31,20 +26,14 @@ function save(data, callback) {
 }
 
 function find(data, callback) {
-	return Blog.find(data, function(err, doc) {
-		Util.gCallback(callback, err, doc);
+	return Article.find(data, function(err, doc) {
+		Tools.gCallback(callback, err, doc);
 	});
 }
 
 function findById(id, callback) {
-	return Blog.findById(id, function(err, doc) {
-		Util.gCallback(callback, err, doc);
-	});
-}
-
-function findLastest(callback) {
-	return Blog.findById(id, function(err, doc) {
-		Util.gCallback(callback, err, doc);
+	return Article.findById(id, function(err, doc) {
+		Tools.gCallback(callback, err, doc);
 	});
 }
 
@@ -53,6 +42,7 @@ function generateDirectories(callback) {
   
   var query = find().sort({date: -1});
   query.exec(function(err, docs) {
+  	console.log(docs);
     if(err || !docs) {
 			if(typeof callback === 'function') {
 				callback(err);
@@ -69,10 +59,10 @@ function generateDirectories(callback) {
 				temp[year].push({
 					title: d.title,
 					author: d.author,
-					date: Util.getDateTime(d.date),
+					date: DateTime.datetime(d.date, 'YYYY-MM-dd HH:mm:ss'),
           year: year,
-          summary: marked(d.summary || ''),
-					href: '/tech/0/' + d._id
+          summary: Marked(d.summary || ''),
+					href: '/article/0/' + d._id
 				});
 				
 				if(Directories.indexOf(temp[year]) === -1) {
