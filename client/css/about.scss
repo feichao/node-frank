@@ -1,0 +1,79 @@
+#about-page-wrap {
+  border: 1px solid transparent;
+  color: $light-color;
+  text-align: center;
+
+  a {
+		color: $light-color;
+  }
+
+  & > * {
+    margin-top: 70px;
+    position: relative;
+    &::after {
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 100px;
+      position: absolute;
+      transform: scale3d(0, 0, 0);
+      width: 100%;
+    }
+  }
+  .career {
+    &::after {
+    	animation: career-motion .8s cubic-bezier(0.47, 0, 0.25, 0.02) forwards;
+      content: '职业';
+      left: 20%;
+    	top: -40px;
+    	width: 100%;
+    }
+  }
+  .status {
+    &::after {
+    	animation: status-motion .8s  cubic-bezier(0.47, 0, 0.25, 0.02) forwards .6s;
+      content: '状态';
+    	left: -10%;
+    	top: -40px;
+    }
+  }
+  .poetry {
+    &::after {
+    	animation: poetry-motion .8s  cubic-bezier(0.47, 0, 0.25, 0.02) forwards 1.2s;
+      content: '诗与远方';
+      top: 35%;
+      left: 18%;
+    }
+  }
+}
+
+@keyframes career-motion {
+  from {
+  	top: -999px;
+  }
+
+  to {
+  	transform: scale3d(1, 1, 1) rotateZ(-30deg);
+  	top: -40px;
+  }
+}
+
+@keyframes status-motion {
+  from {
+		left: -80%;
+  }
+
+  to {
+		left: -10%;
+		transform: scale3d(1, 1, 1) rotateZ(15deg);
+  }
+}
+
+@keyframes poetry-motion {
+  from {
+		left: 90%;
+  }
+
+  to {
+		left: 18%;
+		transform: scale3d(1, 1, 1);
+  }
+}
