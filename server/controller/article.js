@@ -65,7 +65,7 @@ function getArticleStory(req, res, next) {
  * 新建文章页面
  */
 function createArticlePage(req, res, next) {
-	res.render('newarticle', { title: '发布文章' });
+	res.render('newarticle', { title: '新建文章' });
 }
 
 /**

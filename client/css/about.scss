@@ -1,6 +1,7 @@
 #about-page-wrap {
   border: 1px solid transparent;
   color: $light-color;
+  overflow: hidden;
   text-align: center;
 
   a {
@@ -38,7 +39,7 @@
   .poetry {
     &::after {
     	animation: poetry-motion .8s  cubic-bezier(0.47, 0, 0.25, 0.02) forwards 1.2s;
-      content: '诗与远方';
+      content: '诗の远方';
       top: 35%;
       left: 18%;
     }
