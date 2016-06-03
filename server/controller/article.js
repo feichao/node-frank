@@ -5,6 +5,7 @@ var DateTime = require('../util/datetime.js');
 
 var Config = require('../../config.js');
 var ArticleProxy = require('../proxy/article.js');
+var Request = require('../constant/request.js');
 
 var category = 0;
 
@@ -23,7 +24,7 @@ function getArticle(req, res, next) {
 		return d.length > 0;
 	});
 
-	var pages = Config.pages.filter(function(p, i) { return i ===0 || i === 3; });
+	var pages = Config.pages.filter(function(p, i) { return i === 0 || i === 3; });
 	var connects = Config.connects;
 
 	if(id) {
@@ -65,14 +66,29 @@ function getArticleStory(req, res, next) {
  * 新建文章页面
  */
 function createArticlePage(req, res, next) {
-	res.render('newarticle', { title: '新建文章' });
+	var categories = Config.categories;
+
+	res.render('newarticle', { 
+		title: '新建文章',
+		categories: categories
+	});
 }
 
 /**
  * 新建文章
  */
 function createArticle(req, res, next) {
-	req.body.tags = (req.body.tags || '').split(' ').map(function(t) {
+	var sess = req.session;
+
+	if(!sess.authcode || req.body.authcode !== sess.authcode) {
+		return res.json(Request.Error.ARTICLE.ILLEGAL_USER);
+	}
+
+	if(req.cookies.authcode !== '1') {
+		return res.json(Request.Error.ARTICLE.ILLEGAL_AUTHCODE);
+	}
+
+	req.body.tags = (req.body.tags || '').split('+').filter(function(t) { return t; }).map(function(t) {
 		return t.trim();
 	});
 
@@ -81,7 +97,13 @@ function createArticle(req, res, next) {
 			return next(err);
 		}
 
-		res.redirect(req.body.category === 0 ? '/article' : '/story');
+		sess.authcode = undefined;
+		res.cookie('authcode', 1, {
+      expires: new Date(Date.now() - 1), 
+      httpOnly: true
+    });
+
+		res.json(Request.Ok);
 	});
 }
 

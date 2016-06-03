@@ -15,12 +15,21 @@ function sendAuthCode(req, res, next) {
   } else if(!SmsVerify.isIllegal(num)) {
     res.json(Request.Error.SMS.ILLEGAL);
   } else {
-  	SmsService.sendAuthCode(num, Tools.getAuthCode(), function(err) {
+
+    var authcode = Tools.getAuthCode();
+
+  	SmsService.sendAuthCode(num, authcode, function(err) {
   		if(err) {
   			return res.json(err);
   		}
   		
-  		res.json(Request.oK)
+      req.session.authcode = authcode;
+      res.cookie('authcode', 1, {
+        expires: new Date(Date.now() + 1000 * 60 * 60), 
+        httpOnly: true
+      });
+
+  		res.json(Request.Ok)
   	});
   }
 }

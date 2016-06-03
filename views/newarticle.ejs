@@ -1,34 +1,35 @@
 <% include ./header %>
 <div id="new-article-wrap">
-	<form action="/article/new" method="post" class="mgb2">
+	<form id="submit-artical" class="mgb2">
 		<label class="block">
 			<span class="mgr1">标题</span>
-			<input type="text" name="title" required="required" placeholder="输入标题">
+			<input type="text" name="title" required="required" max-length="32" placeholder="输入标题">
 		</label>
 		<label class="block">
 			<span class="mgr1">作者</span>
-			<input type="text" name="author" required="required" placeholder="输入作者">
+			<input type="text" name="author" required="required" max-length="16" placeholder="输入作者">
 		</label>
 		<label class="block">
 			<span class="mgr1">标签</span>
-			<input type="text" name="tags" required="required"  placeholder="输入标签，空格分隔">
+			<input type="text" name="tags" required="required" max-length="32" placeholder="输入标签，‘+’分隔">
 		</label>
 		<label class="block">
 			<span class="mgr1">分类</span>
 			<select name="category">
-				<option value="0">Article</option>
-				<option value="1">Story</option>
+				<% categories.forEach(function(c) { %>
+					<option value="<%= c.value %>"><%= c.label %></option>
+				<% }) %>
 			</select>
 		</label>
 		<label class="block">
 			<textarea name='summary' required="required" placeholder="输入摘要"></textarea>
 		</label>
 		<label class="block">
-			<textarea name='body' required="required" placeholder="输入正文"></textarea>
+			<textarea name='body' required="required" placeholder="输入正文，Markdown格式"></textarea>
 		</label>
 		<label class="block">
-			<input type="text" name="phone" required="required" placeholder="输入手机号，获取验证码">
-			<input type="text" name="authcode" class="mgl2" required="required" placeholder="输入验证码">
+			<input type="text" name="phone" required="required" placeholder="输入手机号，获取授权码">
+			<input type="text" name="authcode" class="mgl2" required="required" placeholder="输入授权码，区分大小写">
 			<button id="authcode" class="button mgl2" type="button">获取</button>
 		</label>
 		<button class="button mgr2" type="submit">保存</button>

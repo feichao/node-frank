@@ -12,6 +12,16 @@ var Error = {
       code: 1001,
       msg: '此手机号码未授权'
     }
+  },
+  ARTICLE: {
+    ILLEGAL_AUTHCODE: {
+      code: 2000,
+      msg: '授权码已过期，请重新获取'
+    },
+    ILLEGAL_USER: {
+      code: 2001,
+      msg: '无效的授权码'
+    }
   }
 };
 
