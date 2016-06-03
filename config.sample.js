@@ -15,6 +15,10 @@ module.exports = {
     phoneList: ['1360000000']
   },
 
+  session: {
+    secret: 'xxxxxxx'
+  },
+
   // home page's title list, random show
   titles: ['美好的一天', '这不是游戏', '用心爱她', '最初的故事', '谁拿走了龙珠'],
 

@@ -6,7 +6,17 @@ var ArticleCtrl = require('../server/controller/article.js');
 var SmsCtrl = require('../server/controller/sms.js');
 var AboutCtrl = require('../server/controller/about.js');
 
-/* GET home page. */
+router.all('*', function(req, res, next) {
+	var sess = req.session;
+
+	if(!sess._sessionId) {
+		sess._sessionId = new Date().valueOf();
+	}
+
+	next();
+
+});
+
 router.get('/', IndexCtrl.getIndex);
 
 router.get('/article(/0/:id)?', ArticleCtrl.getArticle);
