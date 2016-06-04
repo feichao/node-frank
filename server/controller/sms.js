@@ -15,8 +15,14 @@ function sendAuthCode(req, res, next) {
   } else if(!SmsVerify.isIllegal(num)) {
     res.json(Request.Error.SMS.ILLEGAL);
   } else {
+    var authcode, now = Date.now(), diff;
+    if(req.session.authcodetime && (diff = now - req.session.authcodetime) < 60 * 1000) {
+      return res.json(Object.assign({}, Request.Error.SMS.TIMEOUT, {
+        msg: '请' + (60 - Math.round(diff / 1000)) + '秒后再请求'
+      }));
+    }
 
-    var authcode = Tools.getAuthCode();
+    authcode = Tools.getAuthCode();
 
   	SmsService.sendAuthCode(num, authcode, function(err) {
   		if(err) {
@@ -24,12 +30,13 @@ function sendAuthCode(req, res, next) {
   		}
   		
       req.session.authcode = authcode;
+      req.session.authcodetime = now;
       res.cookie('authcode', 1, {
-        expires: new Date(Date.now() + 1000 * 60 * 60), 
+        expires: new Date(req.session.authcodetime + 1000 * 60 * 60), 
         httpOnly: true
       });
 
-  		res.json(Request.Ok)
+  		res.json(Request.Ok);
   	});
   }
 }

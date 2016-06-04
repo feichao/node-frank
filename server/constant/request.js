@@ -11,7 +11,11 @@ var Error = {
     ILLEGAL: {
       code: 1001,
       msg: '此手机号码未授权'
-    }
+    },
+    TIMEOUT: {
+      code: 1003,
+      msg: '请1分钟后再请求'
+    },
   },
   ARTICLE: {
     ILLEGAL_AUTHCODE: {
