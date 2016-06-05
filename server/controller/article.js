@@ -99,13 +99,13 @@ function updateArticlePage(req, res, next) {
 function updateArticle(req, res, next) {
 	var sess = req.session;
 
-	// if(!sess.authcode || req.body.authcode !== sess.authcode) {
-	// 	return res.json(Request.Error.ARTICLE.ILLEGAL_USER);
-	// }
+	if(!sess.authcode || req.body.authcode !== sess.authcode) {
+		return res.json(Request.Error.ARTICLE.ILLEGAL_USER);
+	}
 
-	// if(req.cookies.authcode !== '1') {
-	// 	return res.json(Request.Error.ARTICLE.ILLEGAL_AUTHCODE);
-	// }
+	if(req.cookies.authcode !== '1') {
+		return res.json(Request.Error.ARTICLE.ILLEGAL_AUTHCODE);
+	}
 
 	req.body.tags = (req.body.tags || '').split('+').filter(function(t) { return t; }).map(function(t) {
 		return t.trim();

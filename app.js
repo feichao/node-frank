@@ -7,10 +7,12 @@ var bodyParser = require('body-parser');
 
 var config = require('./config.js');
 var routes = require('./routes/routes');
+var MongoDB = require('./server/service/mongodb.js').mongoDB;
 
 var app = express();
 
 var session = require('express-session');
+var MongoStore = require('connect-mongo/es5')(session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +31,7 @@ app.use(session({
   secret: config.session.secret,
   resave: false,
   saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: MongoDB }),
   cookie: { 
     path: '/', 
     httpOnly: true, 

@@ -1,5 +1,7 @@
 node_modules
 .idea
+.avoscloud
 config.js
 public/javascripts/scripts.js
 public/stylesheets/main.min.css
+public/stylesheets/main.min.css.avoscloud/
