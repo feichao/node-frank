@@ -13,16 +13,29 @@ var Directories = [];
 generateDirectories();
 
 function save(data, callback) {
-  var article = new Article(data);
+	var article;
 
-  return article.save(function(err, product, numAffected) {
-    if(err) {
-    	callback(err);
-    	return console.log('save blog error: ' + err);
-    }
-    
-    generateDirectories(callback);
-  });
+	if(data.id) {
+		data.update = new Date();
+		return Article.findByIdAndUpdate(data.id, data, function(err, doc) {
+	    if(err) {
+	    	callback(err);
+	    	return console.log('save blog error: ' + err);
+	    }
+	    
+	    generateDirectories(callback);
+	  });
+	} else {
+		article = new Article(data);
+		return article.save(function(err, product, numAffected) {
+	    if(err) {
+	    	callback(err);
+	    	return console.log('save blog error: ' + err);
+	    }
+	    
+	    generateDirectories(callback);
+	  });
+	}
 }
 
 function find(data, callback) {
@@ -77,8 +90,18 @@ function generateDirectories(callback) {
   });
 }
 
-function getDirectories() {
-  return Directories;
+function getDirectories(category) {
+	if(typeof category === 'undefined') {
+		return Directories;
+	}
+
+	return Directories.map(function(d) {
+		return d.filter(function(dd) {
+			return dd.category === category;
+		});
+	}).filter(function(d) {
+		return d.length > 0;
+	});
 }
 
 module.exports = {

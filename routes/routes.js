@@ -22,9 +22,12 @@ router.get('/', IndexCtrl.getIndex);
 router.get('/article(/0/:id)?', ArticleCtrl.getArticle);
 router.get('/story(/0/:id)?', ArticleCtrl.getArticleStory);
 
-router.get('/article/new', ArticleCtrl.createArticlePage);
-router.get('/story/new', ArticleCtrl.createArticlePage);
-router.post('/article/new', ArticleCtrl.createArticle);
+router.get('/article/new', ArticleCtrl.updateArticlePage);
+router.get('/story/new', ArticleCtrl.updateArticlePage);
+router.post('/article/new', ArticleCtrl.updateArticle);
+
+router.get('/article/edit/:id', ArticleCtrl.updateArticlePage);
+router.post('/article/edit', ArticleCtrl.updateArticle);
 
 router.post('/article/authcode', SmsCtrl.sendAuthCode);
 

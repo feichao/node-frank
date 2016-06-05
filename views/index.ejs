@@ -1,6 +1,9 @@
 <% include ./header %>
 <div id="index-page-wrap">
-	<h1 class="title mgb4"><%= title %></h1>
+	<h1 class="title mgb4">
+		<%= title %>
+		<a class="pull-right" href="/article/new">new baby</a>
+	</h1>
 	<ul class="common-ul nav no-padding">
 		<% pages.forEach(function(p) { %>
 			<li><a href="<%= p.link %>"><%= p.text %></a></li>

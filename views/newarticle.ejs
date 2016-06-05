@@ -1,31 +1,37 @@
 <% include ./header %>
 <div id="new-article-wrap">
 	<form id="submit-artical" class="mgb2">
+		<a class="pull-right" href="/">主页邬</a>
+		<input type="hidden" name="id" value="<%= blog.id %>">
 		<label class="block">
 			<span class="mgr1">标题</span>
-			<input type="text" name="title" required="required" max-length="32" placeholder="输入标题">
+			<input type="text" name="title" value="<%= blog.title %>" required="required" max-length="32" placeholder="输入标题">
 		</label>
 		<label class="block">
 			<span class="mgr1">作者</span>
-			<input type="text" name="author" required="required" max-length="16" placeholder="输入作者">
+			<input type="text" name="author" value="<%= blog.author %>" required="required" max-length="16" placeholder="输入作者">
 		</label>
 		<label class="block">
 			<span class="mgr1">标签</span>
-			<input type="text" name="tags" required="required" max-length="32" placeholder="输入标签，‘+’分隔">
+			<input type="text" name="tags" value="<%= blog.tags %>" required="required" max-length="32" placeholder="输入标签，‘+’分隔">
 		</label>
 		<label class="block">
 			<span class="mgr1">分类</span>
 			<select name="category">
 				<% categories.forEach(function(c) { %>
-					<option value="<%= c.value %>"><%= c.label %></option>
+					<% if(c.value === blog.category) { %>
+						<option value="<%= c.value %>" selected><%= c.label %></option>
+					<% } else { %>
+						<option value="<%= c.value %>"><%= c.label %></option>
+					<% } %>
 				<% }) %>
 			</select>
 		</label>
 		<label class="block">
-			<textarea name='summary' required="required" placeholder="输入摘要"></textarea>
+			<textarea name="summary" required="required" placeholder="输入摘要"><%= blog.summary %></textarea>
 		</label>
 		<label class="block">
-			<textarea name='body' required="required" placeholder="输入正文，Markdown格式"></textarea>
+			<textarea name="body" required="required" placeholder="输入正文，Markdown格式"><%= blog.body %></textarea>
 		</label>
 		<label class="block">
 			<input type="text" name="phone" required="required" placeholder="输入手机号，获取授权码">

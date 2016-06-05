@@ -34,14 +34,26 @@
 
 	<!-- 拉取具体内容 -->
 	<div class="content pdb3">
-		<h2 class="mgb0"><%= blog.title %></h2>
+		<h2 class="mgb0">
+			<%= blog.title %>
+			<a class="pull-right edit" href="/article/edit/<%= blog.id %>">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			</a>
+		</h2>
 		<p class="base-info">
 			<span class="mgr2">作者：<%= blog.author %></span>
 			<span class="mgr2">发表日期：<%= blog.date %></span>
 			<span class="mgr2">更新日期：<%= blog.update %></span>
 			<span class="pull-right">分类：<%= blog.category %></span>
 		</p>
-		<%- blog.body %>
+		<div>
+			<h3>摘要</h3>
+			<p><%= blog.summary %></p>
+		</div>
+		<div class="mgt3">
+			<h3>正文</h3>
+			<%- blog.body %>
+		</div>
 		<hr class="mgt2">
 		<hr>
 		<div class="other-info">

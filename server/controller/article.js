@@ -7,22 +7,22 @@ var Config = require('../../config.js');
 var ArticleProxy = require('../proxy/article.js');
 var Request = require('../constant/request.js');
 
-var category = 0;
-
 /**
  * 获取文章内容
  */
 function getArticle(req, res, next) {
-	category = category || 0;
+	req.session.category = 0;
+	getArticleDetail(req, res, next);
+}
 
+function getArticleStory(req, res, next) {
+	req.session.category = 1;
+	getArticleDetail(req, res, next);
+}
+
+function getArticleDetail(req, res, next) {
 	var id = req.params[0];
-	var directories = ArticleProxy.getDirectories().map(function(d) {
-		return d.filter(function(dd) {
-			return dd.category === category;
-		});
-	}).filter(function(d) {
-		return d.length > 0;
-	});
+	var directories = ArticleProxy.getDirectories(req.session.category);
 
 	var pages = Config.pages.filter(function(p, i) { return i === 0 || i === 3; });
 	var connects = Config.connects;
@@ -33,16 +33,18 @@ function getArticle(req, res, next) {
 				return next(err);
 			}
 
-			res.render('article', { 
+			res.render('article', {
 				title: doc.title,
 				directory: directories,
 				blog: {
+					id: id,
 					title: doc.title,
 					author: doc.author,
-					category: doc.category,
+					category: doc.category === '0' ? '猿文色' : '故事旮',
 					tags: doc.tags,
 					date: DateTime.datetime(doc.date),
 					update: DateTime.datetime(doc.update),
+					summary: doc.summary,
 					body: Marked(doc.body)
 				},
 				pages: pages,
@@ -56,28 +58,41 @@ function getArticle(req, res, next) {
 	}
 }
 
-function getArticleStory(req, res, next) {
-	category = 1;
-	getArticle(req, res, next);
-	category = 0;
-}
-
-/**
- * 新建文章页面
- */
-function createArticlePage(req, res, next) {
+function updateArticlePage(req, res, next) {
+	var id = req.params.id;
 	var categories = Config.categories;
 
-	res.render('newarticle', { 
-		title: '新建文章',
-		categories: categories
-	});
+	if(typeof id !== 'undefined') {
+		ArticleProxy.findById(id, function(err, doc) {
+			if(err || !doc) {
+				return next(err);
+			}
+
+			res.render('newarticle', {
+				title: '编辑文章',
+				categories: categories,
+				blog: {
+					id: id,
+					title: doc.title,
+					author: doc.author,
+					category: doc.category,
+					tags: doc.tags.join('+'),
+					summary: doc.summary,
+					body: doc.body
+				}
+			});
+
+		});
+	} else {
+		res.render('newarticle', {
+			title: '新建文章',
+			categories: categories,
+			blog: {}
+		});
+	}
 }
 
-/**
- * 新建文章
- */
-function createArticle(req, res, next) {
+function updateArticle(req, res, next) {
 	var sess = req.session;
 
 	if(!sess.authcode || req.body.authcode !== sess.authcode) {
@@ -110,6 +125,7 @@ function createArticle(req, res, next) {
 module.exports = {
 	getArticle: getArticle,
 	getArticleStory: getArticleStory,
-	createArticlePage: createArticlePage,
-	createArticle: createArticle
+	updateArticlePage: updateArticlePage,
+	updateArticle: updateArticle
+
 };

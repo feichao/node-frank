@@ -1,5 +1,10 @@
 #new-article-wrap {
   & > form {
+    & > a {
+      color: $grey-color;
+      font-size: $middle-font;
+    }
+
     margin: auto;
     max-width: 800px;
     width: 80%;
