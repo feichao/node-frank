@@ -3,6 +3,8 @@
     & > a {
       color: $grey-color;
       font-size: $middle-font;
+      position: relative;
+      z-index: 1;
     }
 
     margin: auto;
@@ -13,10 +15,21 @@
       display: block;
       color: $light-color;
       margin: 20px 0;
+      position: relative;
 
       & > * {
         border: none;
         border-radius: 2px;
+      }
+
+      &.dynamic-ttile::after {
+        animation: dynamicTitleMove .5s forwards;
+        bottom: 10px;
+        color: $deeper-grey-color;
+        content: (attr(placeholder));
+        position: absolute;
+        transform: scale3d(0, 0, 0);
+        right: 10px;
       }
     }
 
@@ -57,7 +70,7 @@
       resize: none;
       width: 100%;
 
-      &[name=summary] {
+      &[name=summary], &[name=css], &[name=js] {
         min-height: 150px;
       }
 
@@ -65,5 +78,15 @@
         min-height: 400px;
       }
     }
+  }
+}
+
+@keyframes dynamicTitleMove {
+  from {
+    transform: scale3d(0, 0, 0);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
   }
 }

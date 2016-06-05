@@ -31,7 +31,13 @@
 			<textarea name="summary" required="required" placeholder="输入摘要"><%= blog.summary %></textarea>
 		</label>
 		<label class="block">
-			<textarea name="body" required="required" placeholder="输入正文，Markdown格式"><%= blog.body %></textarea>
+			<textarea name="body" required="required" placeholder="输入正文，Markdown 格式"><%= blog.body %></textarea>
+		</label>
+		<label class="block">
+			<textarea name="css" placeholder="输入文章依赖的 CSS 文件链接，换行分隔"></textarea>
+		</label>
+		<label class="block">
+			<textarea name="js" placeholder="输入文章依赖的 JS 文件链接，换行分隔"></textarea>
 		</label>
 		<label class="block">
 			<input type="text" name="phone" required="required" placeholder="输入手机号，获取授权码">

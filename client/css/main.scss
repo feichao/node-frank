@@ -28,6 +28,10 @@ body {
   min-width: 1000px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #toast {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 2px;

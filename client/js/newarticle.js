@@ -5,13 +5,16 @@ var Ajax = require('./ajax.js');
 var authcodeBtn;
 var phoneInput;
 var submitFrom;
+var textareaEle;
 
 $(document).ready(function() {
 	authcodeBtn = $('#authcode');
 	phoneInput = $('input[name="phone"]');
 	submitFrom = $('#submit-artical');
+	textareaEle = $('textarea');
 
 	authcodeBtn.on('click', getAuthcode);
+	textareaEle.on('keyup', showTitle);
 	submitFrom.submit(submitArtical);
 });
 
@@ -52,6 +55,15 @@ function getAuthcode(event) {
 			disabledBtn($this);
 		}
 	});
+}
+
+function showTitle(event) {
+	var $this = $(this);
+	if(this.value) {
+		$this.parent().attr('placeholder', this.placeholder).addClass('dynamic-ttile');
+	} else {
+		$this.parent().removeClass('dynamic-ttile');
+	}
 }
 
 function submitArtical(event) {

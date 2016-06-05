@@ -39,6 +39,12 @@ var articleSchema = new Schema({
 
   // 标签
   tags: [String],
+
+  // 文章依赖的 JS 文件
+  js: [String],
+
+  // 文章依赖的 CSS 文件
+  css: [String],
 });
 
 module.exports = {

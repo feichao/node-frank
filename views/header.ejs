@@ -5,5 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/highlight.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.min.css">
+    <% if(typeof blog !== 'undefined' && blog.css instanceof Array) { %>
+			<% blog.css.forEach(function(css) {%>
+				<link rel="stylesheet" type="text/css" href="<%= css %>">
+			<% })%>
+		<% }%>	
   </head>
   <body>

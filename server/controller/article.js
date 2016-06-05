@@ -45,6 +45,8 @@ function getArticleDetail(req, res, next) {
 					date: DateTime.datetime(doc.date),
 					update: DateTime.datetime(doc.update),
 					summary: doc.summary,
+					css: doc.css,
+					js: doc.js,
 					body: Marked(doc.body)
 				},
 				pages: pages,
@@ -78,6 +80,8 @@ function updateArticlePage(req, res, next) {
 					category: doc.category,
 					tags: doc.tags.join('+'),
 					summary: doc.summary,
+					css: doc.css,
+					js: doc.js,
 					body: doc.body
 				}
 			});
@@ -95,15 +99,23 @@ function updateArticlePage(req, res, next) {
 function updateArticle(req, res, next) {
 	var sess = req.session;
 
-	if(!sess.authcode || req.body.authcode !== sess.authcode) {
-		return res.json(Request.Error.ARTICLE.ILLEGAL_USER);
-	}
+	// if(!sess.authcode || req.body.authcode !== sess.authcode) {
+	// 	return res.json(Request.Error.ARTICLE.ILLEGAL_USER);
+	// }
 
-	if(req.cookies.authcode !== '1') {
-		return res.json(Request.Error.ARTICLE.ILLEGAL_AUTHCODE);
-	}
+	// if(req.cookies.authcode !== '1') {
+	// 	return res.json(Request.Error.ARTICLE.ILLEGAL_AUTHCODE);
+	// }
 
 	req.body.tags = (req.body.tags || '').split('+').filter(function(t) { return t; }).map(function(t) {
+		return t.trim();
+	});
+
+	req.body.css = (req.body.css || '').split('\n').filter(function(t) { return t; }).map(function(t) {
+		return t.trim();
+	});
+
+	req.body.js = (req.body.js || '').split('\n').filter(function(t) { return t; }).map(function(t) {
 		return t.trim();
 	});
 
