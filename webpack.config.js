@@ -12,6 +12,7 @@ module.exports = {
       './js/index.js', 
       './js/article.js',
       './js/newarticle.js',
+      './js/tag.js',
       './js/ajax.js'
     ]
   },

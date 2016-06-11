@@ -1,0 +1,36 @@
+#tag-page-wrap {
+  h3 {
+    font-size: $middle-font;
+  }
+  a {
+    color: $primary-inverse-color;
+  }
+  li {
+    background: rgba(0, 0, 0, 0.2);
+    background-clip: content-box;
+    border-radius: 3px;
+    display: none;
+    padding: 1px;
+    position: relative;
+    width: 25%;
+    & > a {
+      display: block;
+      padding: 10px;
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .tags {
+      bottom: 5px;
+      left: 10px;
+      position: absolute;
+      a {
+        color: $grey-color;
+        font-size: $min-font;
+        margin-right: 5px;
+      }
+    }
+  }
+}

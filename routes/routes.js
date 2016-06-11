@@ -4,6 +4,7 @@ var router = express.Router();
 var IndexCtrl = require('../server/controller/index.js');
 var ArticleCtrl = require('../server/controller/article.js');
 var SmsCtrl = require('../server/controller/sms.js');
+var TagCtrl = require('../server/controller/tag.js');
 var AboutCtrl = require('../server/controller/about.js');
 
 router.all('*', function(req, res, next) {
@@ -31,6 +32,7 @@ router.post('/article/edit', ArticleCtrl.updateArticle);
 
 router.post('/article/authcode', SmsCtrl.sendAuthCode);
 
+router.get('/tag/:tag', TagCtrl.getTag);
 router.get('/about', AboutCtrl.getAbout);
 
 

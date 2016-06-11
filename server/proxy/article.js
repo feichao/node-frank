@@ -75,6 +75,7 @@ function generateDirectories(callback) {
           year: year,
           category: d.category,
           summary: Marked(d.summary || ''),
+          tags: d.tags,
 					href: (d.category === 0 ? '/article/0/' : '/story/0/') + d._id
 				});
 				
