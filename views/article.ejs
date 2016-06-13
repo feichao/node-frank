@@ -15,9 +15,9 @@
             <% dir.forEach(function(d) { %>
               <li>
                 <a href="<%= d.href %>">
-                  <span class="title"><%= d.title %></span>
-                  <div class="other">
-                    <span><%= d.date %></span>
+                  <span class="title ellipsis-text"><%= d.title %></span>
+                  <div class="other of-hidden">
+                    <span class="pull-left"><%= d.date %></span>
                     <span class="pull-right"><%= d.author %></span>
                   </div>
                 </a>

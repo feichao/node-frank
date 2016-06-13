@@ -17,20 +17,26 @@ $light-color: white;
 $big-font: 3rem;
 $middle-font: 1.5rem;
 $min-font: 0.75rem;
-$left-side-width: 360px;
+$left-side-width: 300px;
 @import 'base';
 @import 'index';
 @import 'article';
 @import 'newarticle';
 @import 'tag';
 @import 'about';
-
 body {
   min-width: 1000px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.ellipsis-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #toast {
