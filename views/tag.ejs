@@ -6,7 +6,7 @@
 			<li class="center pull-left">
 				<a class="pdb3" href="<%= r.href %>" target="_blank">
 					<h3 class="ellipsis-text"><%= r.title %></h3>
-					<p><%- r.summary %></p>
+					<p><%- r.summary.replace(/\s/g, '') || '无摘要' %></p>
 				</a>
 				<div class="tags">
 					<% r.tags.forEach(function(t) { %>
