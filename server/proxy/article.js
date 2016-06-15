@@ -78,6 +78,7 @@ function generateDirectories(callback) {
           tags: d.tags,
 					href: (d.category === 0 ? '/article/0/' : '/story/0/') + d._id
 				});
+
 				
 				if(Directories.indexOf(temp[year]) === -1) {
 					Directories.push(temp[year]);
@@ -92,6 +93,7 @@ function generateDirectories(callback) {
 }
 
 function getDirectories(category) {
+
 	if(typeof category === 'undefined') {
 		return Directories;
 	}
