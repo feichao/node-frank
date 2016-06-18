@@ -17,7 +17,7 @@ $light-color: white;
 $big-font: 3rem;
 $middle-font: 1.5rem;
 $min-font: 0.75rem;
-$left-side-width: 300px;
+$left-side-width: 320px;
 @import 'base';
 @import 'index';
 @import 'article';
@@ -25,7 +25,9 @@ $left-side-width: 300px;
 @import 'tag';
 @import 'about';
 body {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Sans GB", "WenQuanYi Micro Hei", Verdana, Aril, sans-serif;
   min-width: 1000px;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
