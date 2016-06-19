@@ -1,7 +1,8 @@
 #article-page-wrap {
   height: 100%;
   & > .left-side {
-    background-color: $primary-bg-color;
+    background-image: url('/images/articles_bg.jpg');
+    background-size: cover;
     height: 100%;
     overflow-y: auto;
     padding: 10px 30px;
