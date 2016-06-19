@@ -41,7 +41,7 @@ function getArticleDetail(req, res, next) {
 					title: doc.title,
 					author: doc.author,
 					category: doc.category === '0' ? '猿文色' : '故事旮',
-					href: 'http://' + req.headers.host + (doc.category === 0 ? '/article/0/' : '/story/0/') + id,
+					href: 'http://www.0xfc.cn' + (doc.category === 0 ? '/article/0/' : '/story/0/') + id,
 					tags: doc.tags,
 					date: DateTime.datetime(doc.date),
 					update: DateTime.datetime(doc.update),
