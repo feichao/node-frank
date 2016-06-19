@@ -4,7 +4,9 @@
   box-sizing: border-box;
   color: $light-color;
   height: 100%;
+  overflow: hidden;
   padding: 10px 60px;
+  position: relative;
   & > .title {
     font-size: $big-font;
     font-weight: 100;
@@ -42,6 +44,64 @@
         &:hover {
           color: $light-color;
         }
+      }
+    }
+  }
+  .shortcut-articles {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    height: 460px;
+    overflow: hidden;
+    padding-left: 10px;
+    position: absolute;
+    right: 60px;
+    top: 160px;
+    width: 420px;
+    & > ul {
+      margin: 0 -10px;
+      & > li {
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 10px;
+        position: relative;
+        transition: all .2s;
+        &:hover,
+        &.active {
+          background: rgba(0, 0, 0, 0.2);
+          &::after {
+            opacity: 1;
+            transform: translateX(-50%) scale3d(1, 1, 1);
+          }
+        }
+        &::after {
+          border: 2px solid rgba(255, 255, 255, .5);
+          border-radius: 50%;
+          bottom: 5px;
+          content: '';
+          left: 50%;
+          opacity: 0;
+          position: absolute;
+          transition: all .4s;
+          transform: translateX(-50%) scale3d(2, 2, 2);
+        }
+      }
+    }
+    .articles-list {
+      display: flex;
+      transition: all .5s;
+      width: 400%;
+      & > div {
+        flex: 1;
+      }
+      @for $i from 0 to 4 {
+        &.trans-#{$i} {
+          transform: translateX(-$i * 25 + %);
+        }
+      }
+    }
+    .recent-comments {
+      #ds-recent-comments li.ds-comment {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
       }
     }
   }

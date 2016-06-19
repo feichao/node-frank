@@ -77,6 +77,13 @@ th {
   padding: 0 !important;
 }
 
+.no-text-select {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+}
+
 .mgl1 {
   margin-left: 10px !important;
 }
