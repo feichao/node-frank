@@ -8,7 +8,7 @@ var DateTime = require('../util/datetime.js');
 var Article = require('../model/article.js').article;
 var MongoDB = require('../service/mongodb.js').mongoDB;
 
-var Directories = [];
+var DirectoriesObj = {}, Directories = [];
 
 generateDirectories();
 
@@ -85,6 +85,52 @@ function generateDirectories(callback) {
 				}
 			});
 
+			DirectoriesObj.all = Directories;
+
+			DirectoriesObj[0] = Directories.map(function(d) {
+				return d.filter(function(dd) {
+					return dd.category === 0;
+				});
+			}).filter(function(d) {
+				return d.length > 0;
+			});
+
+			DirectoriesObj[1] = Directories.map(function(d) {
+				return d.filter(function(dd) {
+					return dd.category === 1;
+				});
+			}).filter(function(d) {
+				return d.length > 0;
+			});
+
+			DirectoriesObj.newest = docs.sort(function(a, b) {
+				return b.date - a.date;
+			}).map(function(d){
+				return {
+					title: d.title,
+					author: d.author,
+					date: DateTime.datetime(d.date, 'YYYY-MM-dd HH:mm:ss'),
+          category: d.category,
+					href: (d.category === 0 ? '/article/0/' : '/story/0/') + d._id
+				};
+			}).filter(function(d, index) {
+				return index < 5;
+			});
+
+			DirectoriesObj.update = docs.sort(function(a, b) {
+				return b.update - a.update;
+			}).map(function(d){
+				return {
+					title: d.title,
+					author: d.author,
+					update: DateTime.datetime(d.update, 'YYYY-MM-dd HH:mm:ss'),
+          category: d.category,
+					href: (d.category === 0 ? '/article/0/' : '/story/0/') + d._id
+				};
+			}).filter(function(d, index) {
+				return index < 5;
+			});
+
 			if(typeof callback === 'function') {
 				callback();
 			}
@@ -98,13 +144,7 @@ function getDirectories(category) {
 		return Directories;
 	}
 
-	return Directories.map(function(d) {
-		return d.filter(function(dd) {
-			return dd.category === category;
-		});
-	}).filter(function(d) {
-		return d.length > 0;
-	});
+	return DirectoriesObj[category];
 }
 
 module.exports = {

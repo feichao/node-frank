@@ -1,5 +1,5 @@
 #index-page-wrap {
-  background: url('/images/home_bg.jpg');
+  background-image: url('/images/ao_bg.jpg');
   background-size: cover;
   box-sizing: border-box;
   color: $light-color;
@@ -7,6 +7,7 @@
   overflow: hidden;
   padding: 10px 60px;
   position: relative;
+
   & > .title {
     font-size: $big-font;
     font-weight: 100;
@@ -25,13 +26,13 @@
       transition: all .3s;
       width: 360px;
       &:hover {
-        background: rgba(0, 0, 0, .1);
+        background: rgba(0, 0, 0, .2);
         border-radius: 2px;
       }
     }
   }
   & > .connect-me {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     bottom: 60px;
     font-size: 2rem;
     padding: 10px 20px;
@@ -50,7 +51,7 @@
   .shortcut-articles {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 3px;
-    height: 460px;
+    height: 450px;
     overflow: hidden;
     padding-left: 10px;
     position: absolute;
@@ -102,6 +103,29 @@
     .recent-comments {
       #ds-recent-comments li.ds-comment {
         border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .newest, .update {
+      ul {
+        margin: 0;
+      }
+
+      li {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+        p {
+          margin: 8px 0;
+        }
+
+        .title {
+          line-height: 1.2rem;
+        }
+
+        .info {
+          color: $not-important-color;
+          font-size: $min-font;
+        }
       }
     }
   }
