@@ -1,6 +1,7 @@
 #about-page-wrap {
   background-attachment: fixed;
   background-image: url('http://o8tapqn1p.bkt.clouddn.com/20160623-nodefrank-ao_bg.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
   border: 1px solid transparent;
   color: $light-color;
@@ -28,7 +29,27 @@
         line-height: 1.5rem;
         padding: 10px;
       }
+
+      @for $i from 0 to 8 {
+        &:nth-child(#{$i}) {
+          animation: liAnimation .5s $i * .3s forwards;
+          opacity: 0;
+          transform: translateY(50px);
+        }
+      }
     }
   }
       
+}
+
+@keyframes liAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
