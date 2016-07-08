@@ -6,6 +6,7 @@ var ArticleCtrl = require('../server/controller/article.js');
 var SmsCtrl = require('../server/controller/sms.js');
 var TagCtrl = require('../server/controller/tag.js');
 var AboutCtrl = require('../server/controller/about.js');
+var HoleCtrl = require('../server/controller/hole.js');
 
 router.all('*', function(req, res, next) {
 	var sess = req.session;
@@ -34,6 +35,8 @@ router.post('/article/authcode', SmsCtrl.sendAuthCode);
 
 router.get('/tag/:tag', TagCtrl.getTag);
 router.get('/about', AboutCtrl.getAbout);
+
+router.get('/hole', HoleCtrl.getHole);
 
 
 module.exports = router;

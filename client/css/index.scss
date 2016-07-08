@@ -20,7 +20,7 @@
     font-size: $middle-font;
     margin: 0 -10px;
     & > li {
-      line-height: 3;
+      line-height: 2.8;
       margin: 10px 0;
       padding: 0 10px;
       transition: all .3s;
@@ -33,7 +33,7 @@
   }
   & > .connect-me {
     background: rgba(0, 0, 0, 0.3);
-    bottom: 60px;
+    bottom: 40px;
     font-size: 2rem;
     padding: 10px 20px;
     position: fixed;
@@ -126,7 +126,7 @@
     }
   }
   .bg-story {
-    bottom: 35px;
+    bottom: 30px;
     cursor: pointer;
     left: 65px;
     position: absolute;
