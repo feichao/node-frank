@@ -37,6 +37,7 @@ router.get('/tag/:tag', TagCtrl.getTag);
 router.get('/about', AboutCtrl.getAbout);
 
 router.get('/hole', HoleCtrl.getHole);
+router.post('/hole/new', HoleCtrl.saveHole);
 
 
 module.exports = router;

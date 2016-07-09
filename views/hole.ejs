@@ -1,6 +1,44 @@
 <% include ./header %>
 <div id="hole-page-wrap">
-  <h1><%= name %></h1>
-  <img src="<%= avatar %>">
+  <h1 class="mgt2 mgb2 mgl2">
+    <a href="/" class="mgr2">主页邬</a>
+    <a href="/about">关于の</a>
+  </h1>
+  <div class="mgl2 mgr2 mgb2 submit-block">
+    <textarea id="hole-text" placeholder="随便说点啥"></textarea>
+    <button id="create-hole">提交</button>
+  </div>
+  <ul class="common-ul hole-list">
+    <% holeList.forEach(function(hole) { %>
+      <li>
+        <div class="hole-block">
+          <img class="avatar" src="<%= hole.avatar %>" />
+          <div class="content mgl1">
+            <span class="name"><%= hole.name %></span>
+            <span class="date mgr2"><%= hole.date %></span>
+            <a name="reply-hole" class="reply" href="javascript:void(0)" data-refid="<%= hole.id %>">回复</a>
+            <p><%= hole.content %></p>
+          </div>
+        </div>
+        <% if(hole.children) { %>
+          <ul class="common-ul hole-chileren-list">
+            <% hole.children.forEach(function(cHole) { %>
+              <li>
+                <div class="hole-block">
+                  <img class="avatar" src="<%= cHole.avatar %>" />
+                  <div class="content mgl1">
+                    <span class="name"><%= cHole.name %></span>
+                    <span class="date"><%= cHole.date %></span>
+                    <p><%= cHole.content %></p>
+                  </div>
+                </div>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+  <p class="center mgt3 mgb2">© 2016 Feichao Wan  Powered by NodeJS</p>
 </div>
 <% include ./footer %>

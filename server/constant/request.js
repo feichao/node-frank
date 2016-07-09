@@ -26,6 +26,20 @@ var Error = {
       code: 2001,
       msg: '无效的授权码'
     }
+  },
+  HOLE: {
+    ERROR: {
+      code: 3000,
+      msg: '提交失败，请重试'
+    },
+    EMPTY_CONTENT: {
+      code: 3001,
+      msg: '内容不能为空'
+    },
+    TIMEOUT: {
+      code: 3002,
+      msg: '提交过于频繁'
+    }
   }
 };
 

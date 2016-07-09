@@ -1,0 +1,86 @@
+#hole-page-wrap {
+  background-attachment: fixed;
+  background-image: url('http://o8tapqn1p.bkt.clouddn.com/20160623-nodefrank-ao_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $light-color;
+  min-height: 100%;
+  overflow: hidden;
+  h1 {
+    font-size: $middle-font;
+    a {
+      color: $light-color;
+    }
+  }
+  .submit-block {
+    display: flex;
+    textarea {
+      border: none;
+      flex: 1;
+      font-size: 1.2rem;
+      outline: none;
+      padding: 5px;
+      resize: none;
+    }
+    button {
+      background: white;
+      border: none;
+      border-left: 1px solid;
+      cursor: pointer;
+      font-size: 1rem;
+      outline: none;
+    }
+  }
+  .hole-list {
+    border: 1px solid transparent;
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    & > li {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      margin: 0 20px;
+      padding-top: 10px;
+    }
+    & > li:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .reply {
+    	color: $light-color;
+    	font-size: $min-font;
+    }
+  }
+  .hole-block {
+    display: flex;
+    margin: 15px 0;
+    .avatar {
+      border-radius: 5px;
+      height: 50px;
+      width: 50px;
+    }
+    .content {
+      .name {
+        line-height: 1;
+      }
+      p {
+        margin: 10px 0;
+      }
+      .date {
+        color: $grey-color;
+        font-size: $min-font;
+      }
+    }
+  }
+  .hole-chileren-list {
+    padding-left: 60px;
+    .hole-block {
+      margin: 10px 0;
+      .avatar {
+        border-radius: 5px;
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}

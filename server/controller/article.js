@@ -24,7 +24,7 @@ function getArticleDetail(req, res, next) {
 	var id = req.params[0];
 	var directories = ArticleProxy.getDirectories(req.session.category);
 
-	var pages = Config.pages.filter(function(p, i) { return i === 0 || i === 3; });
+	var pages = Config.pages.filter(function(p, i) { return i === 0 || i === 4; });
 	var connects = Config.connects;
 
 	if(id) {

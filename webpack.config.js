@@ -13,7 +13,8 @@ module.exports = {
       './js/article.js',
       './js/newarticle.js',
       './js/tag.js',
-      './js/ajax.js'
+      './js/ajax.js',
+      './js/hole.js'
     ]
   },
   output: {
