@@ -30,6 +30,10 @@ function getHoleList(callback) {
 			var length = docs.length, count = 0;
 			var result = [];
 
+			if(length <= 0) {
+				callback(null, result)
+			}
+
 			docs.forEach(function(d) {
 				var temp = {
 					id: d._id,
