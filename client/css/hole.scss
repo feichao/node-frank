@@ -12,14 +12,14 @@
       color: $light-color;
     }
   }
-  .submit-block {
+  .submit-block, .reply-block {
     display: flex;
     textarea {
       border: none;
       flex: 1;
       font-size: 1.2rem;
       outline: none;
-      padding: 5px;
+      padding: 6px 8px;
       resize: none;
     }
     button {
@@ -27,10 +27,24 @@
       border: none;
       border-left: 1px solid;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.2rem;
       outline: none;
+      padding: 0 40px;
+
+      &:hover {
+				background: $light-grey-color;
+      }
     }
   }
+	
+	.reply-block {
+		display: none;
+	}
+	
+	.reply-block.show {
+		display: flex;	
+  }
+
   .hole-list {
     border: 1px solid transparent;
     margin: 0;
@@ -56,10 +70,14 @@
     margin: 15px 0;
     .avatar {
       border-radius: 5px;
+      display: block;
       height: 50px;
+      min-width: 50px;
       width: 50px;
     }
     .content {
+    	width: 100%;
+
       .name {
         line-height: 1;
       }
@@ -79,8 +97,16 @@
       .avatar {
         border-radius: 5px;
         height: 40px;
+        min-width: 40px;
         width: 40px;
       }
     }
+  }
+
+  .paging {
+		text-align: right;
+		a {
+			color: $light-color;
+		}
   }
 }

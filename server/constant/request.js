@@ -30,16 +30,20 @@ var Error = {
   HOLE: {
     ERROR: {
       code: 3000,
-      msg: '提交失败，请重试'
+      msg: '提交失败，请刷新页面'
     },
     EMPTY_CONTENT: {
       code: 3001,
       msg: '内容不能为空'
     },
-    TIMEOUT: {
+    INVALID_SESSION: {
       code: 3002,
-      msg: '提交过于频繁'
-    }
+      msg: '页面已过期，请刷新页面'
+    },
+    TOO_FAST: {
+      code: 3003,
+      msg: '提交过于频繁，请稍等片刻'
+    },
   }
 };
 

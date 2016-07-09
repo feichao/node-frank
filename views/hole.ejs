@@ -5,18 +5,22 @@
     <a href="/about">关于の</a>
   </h1>
   <div class="mgl2 mgr2 mgb2 submit-block">
-    <textarea id="hole-text" placeholder="随便说点啥"></textarea>
+    <textarea id="hole-text" placeholder="输入此刻想说的话" rows="2"></textarea>
     <button id="create-hole">提交</button>
+  </div>
+  <div id="reply-block" class="mgb2 reply-block hide">
+    <textarea id="hole-text" placeholder="你想对某某说..." rows="2"></textarea>
+    <button id="reply-btn">提交</button>
   </div>
   <ul class="common-ul hole-list">
     <% holeList.forEach(function(hole) { %>
       <li>
         <div class="hole-block">
           <img class="avatar" src="<%= hole.avatar %>" />
-          <div class="content mgl1">
+          <div class="content mgl1" data-refid="<%= hole.id %>">
             <span class="name"><%= hole.name %></span>
             <span class="date mgr2"><%= hole.date %></span>
-            <a name="reply-hole" class="reply" href="javascript:void(0)" data-refid="<%= hole.id %>">回复</a>
+            <a name="reply-hole" class="reply" href="javascript:void(0)" data-name="<%= hole.name %>">回复</a>
             <p><%= hole.content %></p>
           </div>
         </div>
@@ -39,6 +43,14 @@
       </li>
     <% }) %>
   </ul>
-  <p class="center mgt3 mgb2">© 2016 Feichao Wan  Powered by NodeJS</p>
+  <p class="paging mgt2 mgr2">
+    <a href="/hole?index=<%= paging.pre %>">上一页</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <a href="/hole?index=<%= paging.next %>">下一页</a>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>当前页：<%= +paging.index + 1 %></span>
+    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>总页数：<%= paging.count %></p></span>
+  <p class="center mgt2 mgb2">© 2016 Feichao Wan  Powered by NodeJS</p>
 </div>
 <% include ./footer %>

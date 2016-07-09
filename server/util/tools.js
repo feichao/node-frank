@@ -29,8 +29,12 @@ function getAuthCode(length, phone) {
 	var str = '123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
 
 	var len = length || 5;
+	var result = [];
+	for(var i = 0; i < len; i++) {
+		result.push(0);
+	}
 
-	return [0, 0, 0, 0, 0].map(function(c) {
+	return result.map(function(c) {
 		return str[Math.floor(Math.random() * 59)];
 	}).join('');
 }
