@@ -10,22 +10,22 @@ var MongoDB = require('../service/mongodb.js').mongoDB;
 
 var HoleCount = 0;
 
-var PAGE_SIZE = 20;
+var PAGE_SIZE = 15;
 
 _getHoleCount();
 
 function _getHoleCount() {
-	return Hole.count({ refId: null }, function(err, count) {
-		if(err) {
-			console.log('get hole count err: ' + err);
-		} else {
-			HoleCount = count;
-		}
-	});
+  return Hole.count({ refId: null }, function(err, count) {
+    if (err) {
+      console.log('get hole count err: ' + err);
+    } else {
+      HoleCount = count;
+    }
+  });
 }
 
 function getHoleCount() {
-	return HoleCount;
+  return HoleCount;
 }
 
 function save(data, callback) {
@@ -34,7 +34,7 @@ function save(data, callback) {
     if (err) {
       console.log('save hole error: ' + err);
     } else {
-    	_getHoleCount();
+      _getHoleCount();
     }
 
     callback(err);
@@ -69,30 +69,32 @@ function getHoleList(index, callback) {
             refId: d.refId,
           };
 
-          Hole.find({ refId: temp.id }, function(err, cDocs) {
-            if (err) {
-              temp.children = [];
-            } else {
-              temp.children = cDocs.map(function(dd) {
-                return {
-                  id: dd._id,
-                  date: DateTime.datetime(dd.date, 'YYYY-MM-dd HH:mm:ss'),
-                  name: dd.name,
-                  avatar: dd.avatar,
-                  content: dd.content,
-                  refId: dd.refId,
-                }
-              }).sort(sortDate);
-            }
+          Hole.find({ refId: temp.id })
+            .sort({ date: -1 })
+            .exec(function(err, cDocs) {
+              if (err) {
+                temp.children = [];
+              } else {
+                temp.children = cDocs.map(function(dd) {
+                  return {
+                    id: dd._id,
+                    date: DateTime.datetime(dd.date, 'YYYY-MM-dd HH:mm:ss'),
+                    name: dd.name,
+                    avatar: dd.avatar,
+                    content: dd.content,
+                    refId: dd.refId,
+                  }
+                });
+              }
 
-            result.push(temp);
+              result.push(temp);
 
-            count++;
+              count++;
 
-            if (count === length) {
-              callback(null, result.sort(sortDate));
-            }
-          });
+              if (count === length) {
+                callback(null, result);
+              }
+            });
         });
       }
     });
@@ -119,7 +121,7 @@ function sortDate(a, b) {
 }
 
 module.exports = {
-	PAGE_SIZE: PAGE_SIZE,
+  PAGE_SIZE: PAGE_SIZE,
   save: save,
   getHoleList: getHoleList,
   find: find,
