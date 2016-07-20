@@ -5,11 +5,11 @@
     <a href="/about">关于の</a>
   </h1>
   <div class="mgl2 mgr2 mgb2 submit-block">
-    <textarea id="hole-text" placeholder="输入此刻想说的话" rows="2"></textarea>
+    <textarea id="hole-text" placeholder="输入此刻想说的话" rows="2" wrap="hard"></textarea>
     <button id="create-hole">提交</button>
   </div>
   <div id="reply-block" class="mgb2 reply-block hide">
-    <textarea id="hole-text" placeholder="你想对某某说..." rows="2"></textarea>
+    <textarea id="hole-text" placeholder="你想对某某说..." rows="2" wrap="hard"></textarea>
     <button id="reply-btn">提交</button>
   </div>
   <ul class="common-ul hole-list">
@@ -21,7 +21,7 @@
             <span class="name"><%= hole.name %></span>
             <span class="date mgr2"><%= hole.date %></span>
             <a name="reply-hole" class="reply" href="javascript:void(0)" data-name="<%= hole.name %>">回复</a>
-            <p><%= hole.content %></p>
+            <pre><%= hole.content %></pre>
           </div>
         </div>
         <% if(hole.children) { %>
@@ -33,7 +33,7 @@
                   <div class="content mgl1">
                     <span class="name"><%= cHole.name %></span>
                     <span class="date"><%= cHole.date %></span>
-                    <p><%= cHole.content %></p>
+                    <pre><%= cHole.content %></pre>
                   </div>
                 </div>
               </li>
