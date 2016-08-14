@@ -182,3 +182,49 @@
     transform: scale3d(0.5, 0.5, 0.5);
   }
 }
+
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  #index-page-wrap {
+    padding: 0 10px;
+    & > .title {
+      font-size: $middle-font;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+    ul.nav {
+      font-size: 1.25rem;
+      margin: 0;
+      & > li {
+        line-height: 2;
+        margin: 20px 0;
+      }
+    }
+    & > .connect-me {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 1.5rem;
+      margin: 0;
+      padding: 0 10px;
+      & > li {
+        float: left;
+        margin: 10px 0;
+        text-align: center;
+        width: 20%;
+      }
+    }
+    .shortcut-articles, .bg-story {
+      display: none;
+    }
+  }
+}

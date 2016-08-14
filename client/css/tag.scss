@@ -34,3 +34,39 @@
     }
   }
 }
+
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  #tag-page-wrap {
+    margin-bottom: 40px;
+    h3 {
+      font-size: $middle-font;
+      font-weight: bold;
+    }
+    .common-ul {
+      margin: 0 10px;
+      li {
+        &:first-child {
+          margin-top: 0;
+        }
+        margin: 5px 0;
+        width: 100%;
+        * {
+          font-size: 14px;
+        }
+        h3 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

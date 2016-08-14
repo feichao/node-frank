@@ -46,6 +46,9 @@
     min-height: 100%;
     overflow: hidden;
     padding: 10px 20px;
+    h3.title {
+      font-weight: bold;
+    }
     .edit {
       color: $deepest-grey-color;
       font-size: 1rem;
@@ -123,108 +126,103 @@
 @media screen and (max-width: 480px) {
   #article-page-wrap {
     height: 100%;
-    & > .left-side {
-      background-image: url('http://o8tapqn1p.bkt.clouddn.com/20160623-nodefrank-articles_bg.jpg');
-      background-size: cover;
-      display: none;
-      height: 100%;
-      overflow-y: auto;
-      padding: 10px 30px;
+    .mobile-nav-switch {
+      background: rgba(0,0,0,0.8);
+      border-radius: 2px;
+      bottom: 32px;
+      color: white;
+      display: block;
+      font-size: 22px;
+      height: 32px;
+      left: 10px;
+      line-height: 32px;
       position: fixed;
-      width: $left-side-width;
-      & > .top-nav {
-        font-size: $middle-font;
-        a {
-          color: $light-color;
-        }
+      text-align: center;
+      transition: all .5s;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      width: 32px;
+      z-index: 9999;
+    }
+    #mobile-nav:target {
+      left: 0;
+      .switch-on {
+        left: -32px;
       }
-      & > .article-catalog {
-        color: $light-color;
-        ul.list-year > li {
-          border-bottom: 1px dashed $deeper-grey-color;
-          line-height: 1.6rem;
-          padding: 5px 0 0;
-          position: relative;
-          & > a {
-            color: $light-color;
-            display: block;
-            .other {
-              span {
-                color: $not-important-color;
-                font-size: $min-font;
-              }
-            }
-          }
-          .summary {
-            display: none;
-          }
+      .switch-off {
+        left: 270px;
+      }
+    }
+    & > .left-side {
+      left: -260px;
+      padding: 0 10px;
+      transition: all .4s;
+      -webkit-transition: all .4s;
+      -moz-transition: all .4s;
+      width: 260px;
+      z-index: 9999;
+      .switch-on {
+        left: 10px;
+      }
+      .switch-off {
+        left: -32px;
+      }
+      & > .top-nav {
+        font-weight: bold;
+        margin: 10px 0;
+      }
+      .article-catalog {
+        margin-top: 0px !important;
+        h3 {
+          margin: 10px 0;
+        }
+        .list-year {
+          padding-left: 10px !important;
         }
       }
     }
     & > .content {
+      font-size: 14px;
       margin: 0;
       padding: 10px;
-      .edit {
-        color: $deepest-grey-color;
-        font-size: 1rem;
+      h3.title {
+        margin: 0;
+      }
+      .body {
+        h1, h2, h3 {
+          font-size: 15px;
+          margin: 10px 0;
+        }
+        ul {
+          padding-left: 20px;
+        }
+      }
+      .article-title {
+        margin-right: 20px;
+        margin-top: 10px;
+        .edit {
+          position: absolute;
+          right: 10px;
+        }
       }
       & > .base-info {
-        border-bottom: 1px dashed #eee;
-        color: $not-important-color;
-        font-size: $min-font;
+        .publish-date {
+          float: right;
+          margin-right: 0 !important;
+        }
+        .update-date, .category {
+          display: none;
+        }
       }
       & > .other-info {
-        background: rgba(0, 0, 0, 0.05);
-        font-size: 1.2rem;
-        overflow: hidden;
-        & > .tags,
-        & > .connect-me {
-          margin: 5px;
-          padding: 5px;
-          a {
-            color: $primary-color;
-            font-size: $min-font;
-          }
+        & > .tags {
+          margin: 0px;
+          padding: 0 5px;
         }
         & > .connect-me {
-          li {
-            margin-left: 20px;
-          }
-          a {
-            font-size: 1.35rem;
-          }
+          display: none;
         }
       }
-      blockquote {
-        background-color: #f8f8f8;
-        border-left: 5px solid #4B4B49;
-        margin: 10px 0 0;
-        padding: 0.8rem 1rem;
-        & > p {
-          margin: 0;
-        }
-      }
-      pre code {
-        background-color: #f2f2f2;
-        display: block;
-        overflow-x: auto;
-        padding: 10px;
-      }
-      & > ol,
-      & > ul {
-        padding-left: 1rem;
-      }
-    }
-    #global-summary {
-      background: $light-color;
-      border-radius: 2px;
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-      color: $deepest-grey-color;
-      display: none;
-      max-width: 480px;
-      min-width: 360px;
-      padding: 10px;
-      position: fixed;
     }
   }
 }
