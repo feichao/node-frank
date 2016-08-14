@@ -134,7 +134,7 @@
       display: block;
       font-size: 22px;
       height: 32px;
-      left: 10px;
+      left: 0;
       line-height: 32px;
       position: fixed;
       text-align: center;
@@ -142,31 +142,37 @@
       -webkit-transition: all .5s;
       -moz-transition: all .5s;
       width: 32px;
-      z-index: 9999;
+      z-index: 999;
+      &.switch-on {
+        left: 10px;
+      }
+      &.switch-off {
+        transform: translateX(-32px);
+        -webkit-transform: translateX(-32px);
+        -moz-transform: translateX(-32px);
+      }
     }
     #mobile-nav:target {
-      left: 0;
-      .switch-on {
-        left: -32px;
-      }
-      .switch-off {
-        left: 270px;
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      & + .switch-off {
+        transform: translateX(270px);
+        -webkit-transform: translateX(270px);
+        -moz-transform: translateX(270px);
       }
     }
     & > .left-side {
-      left: -260px;
+      left: 0;
       padding: 0 10px;
       transition: all .4s;
       -webkit-transition: all .4s;
       -moz-transition: all .4s;
+      transform: translateX(-260px);
+      -webkit-transform: translateX(-260px);
+      -moz-transform: translateX(-260px);
       width: 260px;
       z-index: 9999;
-      .switch-on {
-        left: 10px;
-      }
-      .switch-off {
-        left: -32px;
-      }
       & > .top-nav {
         font-weight: bold;
         margin: 10px 0;

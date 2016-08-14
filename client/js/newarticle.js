@@ -22,7 +22,7 @@ function disabledBtn($btn) {
 	var timeout = 60;
 	var interval;
 
-	$btn.prop('disabled', true).text('请等待' + timeout + '秒');
+	$btn.prop('disabled', true).text(timeout + '秒');
 
 	interval = setInterval(function() {
 		timeout--;
@@ -33,7 +33,7 @@ function disabledBtn($btn) {
 			return;
 		}
 
-		$btn.text('请等待' + (timeout.toString().length === 2 ? '' : '0') + timeout + '秒');
+		$btn.text((timeout.toString().length === 2 ? '' : '0') + timeout + '秒');
 	}, 1000);
 }
 

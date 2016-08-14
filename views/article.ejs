@@ -1,5 +1,6 @@
 <% include ./header %>
 <div id="article-page-wrap">
+	<a href="#mobile-nav" class="mobile-nav-switch switch-on fa fa-bars hidden"></a>
 	<div id="mobile-nav" class="left-side bx-s">
 		<ul class="top-nav common-ul ul-inline no-padding">
 			<% pages.forEach(function(p) { %>
@@ -30,9 +31,8 @@
 				</li>
 			<% }) %>
 		</ul>
-		<a href="#mobile-nav" class="mobile-nav-switch switch-on fa fa-bars hidden"></a>
-		<a href="#" class="mobile-nav-switch switch-off fa fa-arrow-left hidden"></a>
 	</div>
+	<a href="#" class="mobile-nav-switch switch-off fa fa-arrow-left hidden"></a>
 
 	<!-- 拉取具体内容 -->
 	<div class="content pdb3">
