@@ -45,6 +45,10 @@ th {
   clear: both;
 }
 
+.hidden {
+  display: none;
+}
+
 .clear-fix:after {
   clear: both;
   content: '';

@@ -88,6 +88,10 @@
         color: $grey-color;
         font-size: $min-font;
       }
+      pre {
+        line-height: 1.5rem;
+        white-space: pre-line;
+      }
     }
   }
   .hole-chileren-list {
@@ -105,8 +109,86 @@
 
   .paging {
 		text-align: right;
+    .pc-pagenum {
+      display: initial;
+    }
 		a {
 			color: $light-color;
 		}
+  }
+}
+
+
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  #hole-page-wrap {
+    h1, .submit-block {
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+    }
+
+    .submit-block, .reply-block {
+      margin-left: -50px;
+      textarea {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+    }
+
+    .hole-list {
+      & > li {
+        margin: 0 10px;
+      }
+    }
+
+    .hole-block {
+      display: flex;
+      margin: 15px 0;
+      .avatar {
+        border-radius: 4px;
+        display: block;
+        height: 40px;
+        min-width: 40px;
+        width: 40px;
+      }
+    }
+    .hole-chileren-list {
+      padding-left: 10px;
+      .hole-block {
+        margin: 10px 0;
+        .avatar {
+          border-radius: 2px;
+          height: 30px;
+          min-width: 30px;
+          width: 30px;
+        }
+      }
+    }
+
+    .paging {
+      margin-right: auto !important;
+      text-align: center;
+      
+      .pc-pagenum {
+        display: none;
+      }
+
+      .mobile-pagenum {
+        display: initial;
+      }
+    }
   }
 }

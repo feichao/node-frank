@@ -47,10 +47,8 @@
     <a href="/hole?index=<%= paging.pre %>">上一页</a>
     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
     <a href="/hole?index=<%= paging.next %>">下一页</a>
-    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <span>当前页：<%= +paging.index + 1 %></span>
-    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-    <span>总页数：<%= paging.count %></p></span>
+    <span class="hidden pc-pagenum">&nbsp;&nbsp;|&nbsp;&nbsp;当前页：<%= +paging.index + 1 %>&nbsp;&nbsp;|&nbsp;&nbsp;总页数：<%= paging.count %></span>
+    <span class="hidden mobile-pagenum">&nbsp;&nbsp;|&nbsp;&nbsp;页码：<%= +paging.index + 1 %>&nbsp;/&nbsp;<%= paging.count %></span>
   <p class="center mgt2 mgb2">© 2016 Feichao Wan  Powered by NodeJS</p>
 </div>
 <% include ./footer %>

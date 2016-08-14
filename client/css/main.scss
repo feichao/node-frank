@@ -32,6 +32,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  body {
+    min-width: auto;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

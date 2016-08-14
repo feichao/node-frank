@@ -42,6 +42,38 @@
       
 }
 
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  #about-page-wrap {
+    h1 {
+      font-size: $middle-font;
+      margin-top: 20px !important;
+    }
+
+    .base-info {
+      margin: 0 10px;
+      padding: 0;
+
+      li {
+        & > blockquote {
+          border-left-width: 6px;
+          margin: 1rem;
+          padding: 1px 10px;
+        }
+      }
+    }
+  }
+}
+
 @keyframes liAnimation {
   0% {
     opacity: 0;
