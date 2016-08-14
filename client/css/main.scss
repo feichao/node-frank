@@ -32,22 +32,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@media screen and (max-width: 960px) { 
-
-} 
-
-/*兼容平板*/
-@media screen and (max-width: 640px) {
-
-} 
-
-/*兼容手机*/
-@media screen and (max-width: 480px) {
-  body {
-    min-width: auto;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -72,3 +56,32 @@ body {
     margin: 10px;
   }
 }
+
+
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  body {
+    min-width: auto;
+  }
+
+  #toast {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 20px;
+    left: 50%;
+    min-width: 70%;
+    right: auto;
+    text-align: center;
+    top: auto;
+    transform: translateX(-50%);
+  }
+}
+

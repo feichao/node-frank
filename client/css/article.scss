@@ -109,3 +109,122 @@
     position: fixed;
   }
 }
+
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  #article-page-wrap {
+    height: 100%;
+    & > .left-side {
+      background-image: url('http://o8tapqn1p.bkt.clouddn.com/20160623-nodefrank-articles_bg.jpg');
+      background-size: cover;
+      display: none;
+      height: 100%;
+      overflow-y: auto;
+      padding: 10px 30px;
+      position: fixed;
+      width: $left-side-width;
+      & > .top-nav {
+        font-size: $middle-font;
+        a {
+          color: $light-color;
+        }
+      }
+      & > .article-catalog {
+        color: $light-color;
+        ul.list-year > li {
+          border-bottom: 1px dashed $deeper-grey-color;
+          line-height: 1.6rem;
+          padding: 5px 0 0;
+          position: relative;
+          & > a {
+            color: $light-color;
+            display: block;
+            .other {
+              span {
+                color: $not-important-color;
+                font-size: $min-font;
+              }
+            }
+          }
+          .summary {
+            display: none;
+          }
+        }
+      }
+    }
+    & > .content {
+      margin: 0;
+      padding: 10px;
+      .edit {
+        color: $deepest-grey-color;
+        font-size: 1rem;
+      }
+      & > .base-info {
+        border-bottom: 1px dashed #eee;
+        color: $not-important-color;
+        font-size: $min-font;
+      }
+      & > .other-info {
+        background: rgba(0, 0, 0, 0.05);
+        font-size: 1.2rem;
+        overflow: hidden;
+        & > .tags,
+        & > .connect-me {
+          margin: 5px;
+          padding: 5px;
+          a {
+            color: $primary-color;
+            font-size: $min-font;
+          }
+        }
+        & > .connect-me {
+          li {
+            margin-left: 20px;
+          }
+          a {
+            font-size: 1.35rem;
+          }
+        }
+      }
+      blockquote {
+        background-color: #f8f8f8;
+        border-left: 5px solid #4B4B49;
+        margin: 10px 0 0;
+        padding: 0.8rem 1rem;
+        & > p {
+          margin: 0;
+        }
+      }
+      pre code {
+        background-color: #f2f2f2;
+        display: block;
+        overflow-x: auto;
+        padding: 10px;
+      }
+      & > ol,
+      & > ul {
+        padding-left: 1rem;
+      }
+    }
+    #global-summary {
+      background: $light-color;
+      border-radius: 2px;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      color: $deepest-grey-color;
+      display: none;
+      max-width: 480px;
+      min-width: 360px;
+      padding: 10px;
+      position: fixed;
+    }
+  }
+}

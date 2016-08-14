@@ -81,6 +81,68 @@
   }
 }
 
+@media screen and (max-width: 960px) { 
+
+} 
+
+/*兼容平板*/
+@media screen and (max-width: 640px) {
+
+} 
+
+/*兼容手机*/
+@media screen and (max-width: 480px) {
+  #new-article-wrap {
+    margin: 0 10px;
+
+    .mobile {
+      display: initial;
+    }
+    
+    & > form {
+      margin: 20px auto 0;
+      max-width: initial;
+      width: auto;
+
+      .home-page {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+    
+      .block {
+        margin: 10px 0;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+      }
+      
+      input[name=authcode] {
+        display: inline-block;
+        margin-left: 0 !important;
+        margin-top: 10px;
+        min-width: 200px;
+      }
+
+      select {
+        display: block;
+        padding: 5px 0px;
+        width: 100%;
+      }
+
+      .button {
+        &#authcode {
+          float: right;
+          margin-top: 10px;
+        }
+        padding: 8px 30px;
+      }
+    }
+  }
+}
+
 @keyframes dynamicTitleMove {
   from {
     transform: scale3d(0, 0, 0);
