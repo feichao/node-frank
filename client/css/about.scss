@@ -33,8 +33,12 @@
       @for $i from 0 to 8 {
         &:nth-child(#{$i}) {
           animation: liAnimation .5s $i * .3s forwards;
+          -webkit-animation: liAnimation .5s $i * .3s forwards;
+          -moz-animation: liAnimation .5s $i * .3s forwards;
           opacity: 0;
           transform: translateY(50px);
+          -webkit-transform: translateY(50px);
+          -moz-transform: translateY(50px);
         }
       }
     }
@@ -84,10 +88,14 @@
   0% {
     opacity: 0;
     transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
   }
 
   100% {
     opacity: 1;
     transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
   }
 }
