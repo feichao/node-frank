@@ -28,7 +28,6 @@ $left-side-width: 320px;
 
 body {
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Sans GB", "WenQuanYi Micro Hei", Verdana, Aril, sans-serif;
-  min-width: 960px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -62,13 +61,7 @@ body {
 
 } 
 
-/*兼容平板*/
 @media screen and (max-width: 640px) {
-
-} 
-
-/*兼容手机*/
-@media screen and (max-width: 480px) {
   body {
     min-width: auto;
   }

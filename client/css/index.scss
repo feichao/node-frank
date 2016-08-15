@@ -52,7 +52,7 @@
   .shortcut-articles {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 3px;
-    height: 450px;
+    height: 420px;
     overflow: hidden;
     // padding-left: 10px;
     position: absolute;
@@ -187,13 +187,7 @@
 
 } 
 
-/*兼容平板*/
 @media screen and (max-width: 640px) {
-
-} 
-
-/*兼容手机*/
-@media screen and (max-width: 480px) {
   #index-page-wrap {
     padding: 0 10px;
     & > .title {

@@ -46,13 +46,7 @@
 
 } 
 
-/*兼容平板*/
 @media screen and (max-width: 640px) {
-
-} 
-
-/*兼容手机*/
-@media screen and (max-width: 480px) {
   #about-page-wrap {
     h1 {
       font-size: $middle-font;
