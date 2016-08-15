@@ -8,9 +8,10 @@
   li {
     background: rgba(0, 0, 0, 0.2);
     background-clip: content-box;
-    border-radius: 3px;
+    border-radius: 5px;
     display: none;
-    padding: 1px;
+    height: 180px;
+    padding: 8px 10px;
     position: relative;
     width: 25%;
     & > a {
@@ -23,8 +24,8 @@
       }
     }
     .tags {
-      bottom: 5px;
-      left: 10px;
+      bottom: 15px;
+      left: 20px;
       position: absolute;
       a {
         color: $grey-color;
@@ -47,12 +48,10 @@
       font-weight: bold;
     }
     .common-ul {
-      margin: 0 10px;
       li {
         &:first-child {
           margin-top: 0;
         }
-        margin: 5px 0;
         width: 100%;
         * {
           font-size: 14px;
