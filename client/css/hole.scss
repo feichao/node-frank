@@ -14,8 +14,16 @@
   }
   .submit-block, .reply-block {
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
     textarea {
       border: none;
+      -moz-box-flex: 1;
+      -webkit-box-flex: 1;
+      -o-box-flex: 1;
+      -ms-flex: 1;
       flex: 1;
       font-size: 1.2rem;
       outline: none;
@@ -43,6 +51,10 @@
 	
 	.reply-block.show {
 		display: flex;	
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
   }
 
   .hole-list {
@@ -67,6 +79,10 @@
   }
   .hole-block {
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
     margin: 15px 0;
     .avatar {
       border-radius: 5px;
@@ -150,6 +166,10 @@
 
     .hole-block {
       display: flex;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -o-box;
+      display: -ms-flexbox;
       margin: 15px 0;
       .avatar {
         border-radius: 4px;
