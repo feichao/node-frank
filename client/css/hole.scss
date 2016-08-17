@@ -20,6 +20,7 @@
     display: -ms-flexbox;
     textarea {
       border: none;
+      display: block;
       -moz-box-flex: 1;
       -webkit-box-flex: 1;
       -o-box-flex: 1;
@@ -35,6 +36,7 @@
       border: none;
       border-left: 1px solid;
       cursor: pointer;
+      display: block;
       font-size: 1.2rem;
       outline: none;
       padding: 0 40px;
@@ -92,6 +94,11 @@
       width: 50px;
     }
     .content {
+      -moz-box-flex: 1;
+      -webkit-box-flex: 1;
+      -o-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
     	width: 100%;
 
       .name {
@@ -165,11 +172,6 @@
     }
 
     .hole-block {
-      display: flex;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -o-box;
-      display: -ms-flexbox;
       margin: 15px 0;
       .avatar {
         border-radius: 4px;
