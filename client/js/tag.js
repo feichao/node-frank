@@ -32,6 +32,9 @@ function showBlocks() {
 	}
 
 	result.forEach(function(r) {
-		$(tagBlocks[r]).fadeIn(2000 + Math.random() * 3000);
+		var $item = $(tagBlocks[r]);
+		$item.delay(100 + Math.random() * 1000).fadeIn(function() {
+			$item.addClass('animation');
+		});
 	});
 }
