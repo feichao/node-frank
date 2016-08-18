@@ -7,8 +7,9 @@ $(document).ready(function() {
 	tagBlocks = wrap.find('li');
 
 	wrap.find('p').each(function(index, p) {
-		if(!p.innerText.trim()) {
-			p.remove();
+		var $p = $(p);
+		if(!$.trim($p.text())) {
+			$p.remove();
 		}
 	});
 
@@ -31,7 +32,7 @@ function showBlocks() {
 		i--;
 	}
 
-	result.forEach(function(r) {
+	$.each(result, function(index, r) {
 		var $item = $(tagBlocks[r]);
 		$item.delay(100 + Math.random() * 1000).fadeIn(function() {
 			$item.addClass('animation');
