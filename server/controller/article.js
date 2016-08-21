@@ -64,6 +64,7 @@ function getArticleDetail(req, res, next) {
 function updateArticlePage(req, res, next) {
 	var id = req.params.id;
 	var categories = Config.categories;
+	var referer = req.headers.referer || '/article';
 
 	if(typeof id !== 'undefined') {
 		ArticleProxy.findById(id, function(err, doc) {
@@ -83,8 +84,9 @@ function updateArticlePage(req, res, next) {
 					summary: doc.summary,
 					css: doc.css,
 					js: doc.js,
-					body: doc.body
-				}
+					body: doc.body,
+				},
+				referer: referer
 			});
 
 		});
@@ -92,7 +94,8 @@ function updateArticlePage(req, res, next) {
 		res.render('newarticle', {
 			title: '新建文章',
 			categories: categories,
-			blog: {}
+			blog: {},
+			referer: referer
 		});
 	}
 }
