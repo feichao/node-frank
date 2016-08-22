@@ -69,13 +69,14 @@ function showTitle(event) {
 function submitArtical(event) {
 	event.preventDefault();
 
+	var $this = $(this);
 	var category = document.forms[0].category.value;
 
-	Ajax.post('/article/new', $(this).serialize(), function(data) {
+	Ajax.post('/article/new', $this.serialize(), function(data) {
 		if(data.code !== 0) {
 			Toast.show(data.msg);
 		} else {
-			window.location = category === '0' ? '/article' : '/story';
+			window.location = $this.data('referer') || (category === '0' ? '/article' : '/story');
 		}
 	});
 }
