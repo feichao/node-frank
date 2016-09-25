@@ -82,8 +82,8 @@ function updateArticlePage(req, res, next) {
 					category: doc.category,
 					tags: doc.tags.join('+'),
 					summary: doc.summary,
-					css: doc.css,
-					js: doc.js,
+					css: doc.css.join('\n'),
+					js: doc.js.join('\n'),
 					body: doc.body,
 				},
 				referer: referer
