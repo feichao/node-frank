@@ -44,7 +44,10 @@ var Error = {
       code: 3003,
       msg: '提交过于频繁，请稍等片刻'
     },
-  }
+  },
+  ERROR: 4001,
+  UNKNOW: 4002,
+  DB_ERROR: 5000,
 };
 
 var Ok = {

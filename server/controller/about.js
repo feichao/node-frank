@@ -7,6 +7,14 @@ function getAbout(req, res, next) {
 	res.render('about', { title: '关于の' });	
 }
 
+function getJsonAbout(req, res, next) {
+	res.json({
+		code: 0,
+		msg: ''
+	});	
+}
+
 module.exports = {
-	getAbout: getAbout
+	getAbout: getAbout,
+	getJsonAbout: getJsonAbout
 };

@@ -39,5 +39,18 @@ router.get('/about', AboutCtrl.getAbout);
 router.get('/hole', HoleCtrl.getHole);
 router.post('/hole/new', HoleCtrl.saveHole);
 
+// return json data for SPA 
+router.get('/json/hole', HoleCtrl.getJsonHole);
+router.post('/json/hole/new', HoleCtrl.saveHole);
+
+router.get('/json/articles/category', ArticleCtrl.getJsonArticlesCategory);
+router.get('/json/storys/category', ArticleCtrl.getJsonStorysCategory);
+
+router.get('/json/article/:id', ArticleCtrl.getJsonArticle);
+router.get('/json/story/:id', ArticleCtrl.getJsonStory);
+router.post('/json/article', ArticleCtrl.updateArticle);
+
+router.get('/json/about', AboutCtrl.getJsonAbout);
+
 
 module.exports = router;

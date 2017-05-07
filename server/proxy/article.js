@@ -69,6 +69,7 @@ function generateDirectories(callback) {
 				temp[year] = temp[year] || [];
 
 				temp[year].push({
+					id: d._id,
 					title: d.title,
 					author: d.author,
 					date: DateTime.datetime(d.date, 'YYYY-MM-dd HH:mm:ss'),
@@ -107,6 +108,7 @@ function generateDirectories(callback) {
 				return b.date - a.date;
 			}).map(function(d){
 				return {
+					id: d._id,
 					title: d.title,
 					author: d.author,
 					date: DateTime.datetime(d.date, 'YYYY-MM-dd HH:mm:ss'),
@@ -121,6 +123,7 @@ function generateDirectories(callback) {
 				return b.update - a.update;
 			}).map(function(d){
 				return {
+					id: d._id,
 					title: d.title,
 					author: d.author,
 					update: DateTime.datetime(d.update, 'YYYY-MM-dd HH:mm:ss'),
