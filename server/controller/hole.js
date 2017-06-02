@@ -33,6 +33,11 @@ function setHoleCookie(req, res) {
 			httpOnly: true
 		});
 	}
+
+	return {
+		name: name,
+		avatar: avatar
+	};
 }
 
 function getHole(req, res, next) {
@@ -43,7 +48,7 @@ function getHole(req, res, next) {
 		return res.redirect('/hole?index=' + (count - 1));
 	}
 
-	setHoleCookie(req, res);
+	var cooInfo = setHoleCookie(req, res);
 
 	HoleProxy.getHoleList(index, function (err, docs) {
 		var pre = +index - 1;
@@ -52,8 +57,8 @@ function getHole(req, res, next) {
 		if (!err) {
 			res.render('hole', {
 				title: '温柔乡',
-				name: name,
-				avatar: avatar,
+				name: cooInfo.name,
+				avatar: cooInfo.avatar,
 				holeList: docs,
 				paging: {
 					count: count,
@@ -74,11 +79,15 @@ function getJsonHole(req, res, next) {
 	var pageSize = HoleProxy.PAGE_SIZE;
 	var count = Math.ceil(total / pageSize);
 
+	var cooInfo = setHoleCookie(req, res);
+
 	if (index >= count) {
 		return res.json({
 			code: 0,
 			msg: '',
 			data: {
+				name: cooInfo.name,
+				avatar: cooInfo.avatar,
 				total: total,
 				pagesize: pageSize,
 				index: index,
@@ -87,14 +96,14 @@ function getJsonHole(req, res, next) {
 		});
 	}
 
-	setHoleCookie(req, res);
-
 	HoleProxy.getHoleList(index, function (err, docs) {
 		if (!err) {
 			return res.json({
 				code: 0,
 				msg: '',
 				data: {
+					name: cooInfo.name,
+					avatar: cooInfo.avatar,
 					total: total,
 					index: index,
 					pagesize: pageSize,
@@ -106,6 +115,8 @@ function getJsonHole(req, res, next) {
 				code: Request.Error.DB_ERROR,
 				msg: '获取数据失败，请稍后再试',
 				data: {
+					name: cooInfo.name,
+					avatar: cooInfo.avatar,
 					total: total,
 					index: index,
 					pagesize: pageSize,
