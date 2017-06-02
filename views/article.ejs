@@ -1,105 +1,111 @@
 <% include ./header %>
-<div id="article-page-wrap">
-	<a href="#mobile-nav" class="mobile-nav-switch switch-on fa fa-bars hidden"></a>
-	<div id="mobile-nav" class="left-side bx-s">
-		<ul class="top-nav common-ul ul-inline no-padding">
-			<% pages.forEach(function(p) { %>
-				<li class="mgr2"><a href="<%= p.link %>"><%= p.text %></a></li>
-			<% }) %>
-		</ul>
-		<!-- 动态生成目录 -->
-		<ul class="article-catalog common-ul no-padding mgt4">
-			<% directory.forEach(function(dir) { %>
-				<li class="mgt3 mgb3">
-					<h3><%= dir[0].year %></h3>
-					<ul class="list-year common-ul pdl2">
-            <% dir.forEach(function(d) { %>
-              <li>
-                <a href="<%= d.href %>">
+	<div id="article-page-wrap">
+		<a href="#mobile-nav" class="mobile-nav-switch switch-on fa fa-bars hidden"></a>
+		<div id="mobile-nav" class="left-side bx-s">
+			<ul class="top-nav common-ul ul-inline no-padding">
+				<% pages.forEach(function(p) { %>
+					<li class="mgr2">
+						<a href="<%= p.link %>">
+							<%= p.text %>
+						</a>
+					</li>
+					<% }) %>
+			</ul>
+			<!-- 动态生成目录 -->
+			<ul class="article-catalog common-ul no-padding mgt4">
+				<% directory.forEach(function(dir) { %>
+					<li class="mgt3 mgb3">
+						<h3>
+							<%= dir[0].year %>
+						</h3>
+						<ul class="list-year common-ul pdl2">
+							<% dir.forEach(function(d) { %>
+								<li>
+									<a href="<%= d.href %>">
                   <span class="title ellipsis-text"><%= d.title %></span>
                   <div class="other of-hidden">
                     <span class="pull-left"><%= d.date %></span>
                     <span class="pull-right"><%= d.author %></span>
                   </div>
                 </a>
-                <div class="summary">
-                	<%- d.summary %>
-                </div>
-              </li>
-            <% }) %>
-					</ul>
-				</li>
-			<% }) %>
-		</ul>
-	</div>
-	<a href="#" class="mobile-nav-switch switch-off fa fa-arrow-left hidden"></a>
+									<div class="summary">
+										<%- d.summary %>
+									</div>
+								</li>
+								<% }) %>
+						</ul>
+					</li>
+					<% }) %>
+			</ul>
+		</div>
+		<a href="#" class="mobile-nav-switch switch-off fa fa-arrow-left hidden"></a>
 
-	<!-- 拉取具体内容 -->
-	<div class="content pdb3">
-		<h2 class="mgb0 ellipsis-text article-title">
-			<%= blog.title %>
-			<a class="pull-right edit" href="/article/edit/<%= blog.id %>">
+		<!-- 拉取具体内容 -->
+		<div class="content pdb3">
+			<h2 class="mgb0 ellipsis-text article-title">
+				<%= blog.title %>
+					<a class="pull-right edit" href="/article/edit/<%= blog.id %>">
 				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 			</a>
-		</h2>
-		<p class="base-info">
-			<span class="mgr2">作者：<%= blog.author %></span>
-			<span class="mgr2 publish-date">发表日期：<%= blog.date %></span>
-			<span class="mgr2 update-date">更新日期：<%= blog.update %></span>
-			<span class="pull-right category">分类：<%= blog.category %></span>
-		</p>
-		<% if(blog.summary) {%>
-			<div>
-				<h3 class="title">摘要</h3>
-				<p class="summary"><%= blog.summary %></p>
-			</div>
-			<div class="mgt3">
-				<h3 class="title">正文</h3>
-		<% } else { %>
-			<div class="mgt1">
-		<% } %>
-			<div class="body"><%- blog.body %></div>
-		</div>
-		<hr class="mgt2">
-		<hr>
-		<div class="other-info">
-			<ul class="common-ul ul-inline pull-left tags">
-				<% blog.tags.forEach(function(t) { %>
-					<li class="mgr1 pull-left">
-						<a href="/tag/<%= t %>">#<%= t %></a>
-					</li>
-				<% }) %>
-			</ul>
-			<ul class="connect-me common-ul ul-inline pull-right">
-				<% connects.forEach(function(c) { %>
-					<li>
-						<a href="<%= c.link %>" target="_blank" title="<%= c.title %>">
-							<i class="fa <%= c.icon %>" aria-hidden="true"></i>
-						</a>
-					</li>
-				<% }) %>
-			</ul>
-		</div>
-		<hr>
-		<hr>
+			</h2>
+			<p class="base-info">
+				<span class="mgr2">作者：<%= blog.author %></span>
+				<span class="mgr2 publish-date">发表日期：<%= blog.date %></span>
+				<span class="mgr2 update-date">更新日期：<%= blog.update %></span>
+				<span class="pull-right category">分类：<%= blog.category %></span>
+			</p>
+			<% if(blog.summary) {%>
+				<div>
+					<h3 class="title">摘要</h3>
+					<p class="summary">
+						<%= blog.summary %>
+					</p>
+				</div>
+				<div class="mgt3">
+					<h3 class="title">正文</h3>
+					<% } else { %>
+						<div class="mgt1">
+							<% } %>
+								<div class="body">
+									<%- blog.body %>
+								</div>
+						</div>
+						<hr class="mgt2">
+						<hr>
+						<div class="other-info">
+							<ul class="common-ul ul-inline pull-left tags">
+								<% blog.tags.forEach(function(t) { %>
+									<li class="mgr1 pull-left">
+										<a href="/tag/<%= t %>">#<%= t %></a>
+									</li>
+									<% }) %>
+							</ul>
+							<ul class="connect-me common-ul ul-inline pull-right">
+								<% connects.forEach(function(c) { %>
+									<li>
+										<a href="<%= c.link %>" target="_blank" title="<%= c.title %>">
+									<i class="fa <%= c.icon %>" aria-hidden="true"></i>
+								</a>
+									</li>
+									<% }) %>
+							</ul>
+						</div>
+						<hr>
+						<hr>
 
-		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="<%= blog.id %>" data-title="<%= blog.title %>" data-url="<%= blog.href %>"></div>
-		<!-- 多说评论框 end -->
-		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-		<script type="text/javascript">
-			var duoshuoQuery = {short_name:"nodefc"};
-			(function() {
-				var ds = document.createElement('script');
-				ds.type = 'text/javascript';ds.async = true;
-				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-				ds.charset = 'UTF-8';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-			})();
-		</script>
-		<!-- 多说公共JS代码 end -->
-		
-	</div>
-	<div id="global-summary"></div>
-</div>
-<% include ./footer %>
+						<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+						<script>
+							var cloudTieConfig = {
+								url: document.location.href,
+								sourceId: "",
+								productKey: "65fdfb6bee6a49e2b0d5aae590fa07cd",
+								target: "cloud-tie-wrapper"
+							};
+
+						</script>
+						<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+
+				</div>
+				<div id="global-summary"></div>
+		</div>
+		<% include ./footer %>

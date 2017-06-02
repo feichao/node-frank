@@ -1,110 +1,92 @@
 <% include ./header %>
-<div id="index-page-wrap">
-	<h1 class="title mgb4">
-		<%= title %>
-		<a class="pull-right" href="/article/new">new baby</a>
-	</h1>
-	<ul class="common-ul nav no-padding">
-		<% pages.forEach(function(p) { %>
-			<li><a href="<%= p.link %>"><%= p.text %></a></li>
-		<% }) %>
-	</ul>
-
-	<ul class="connect-me common-ul ul-inline">
-		<% connects.forEach(function(c) { %>
-			<li>
-				<a href="<%= c.link %>" target="_blank" title="<%= c.title %>">
-					<i class="fa <%= c.icon %>" aria-hidden="true"></i>
-				</a>
-			</li>
-		<% }) %>
-	</ul>
-
-	<div class="bg-story">
-		<p class="story-text">背景故事：老家一公里外的户县机场，五月艳阳似水，野草丰茂，午后的牛儿眉头紧锁，若有所思</p>
-	</div>
-
-	<div class="shortcut-articles">
-		<ul class="common-ul ul-inline no-padding">
-			<li class="no-text-select active">最近发表</li>
-			<li class="no-text-select">最近更新</li>
-			<li class="no-text-select">最新评论</li>
-			<li class="no-text-select">热评文章</li>
+	<div id="index-page-wrap">
+		<h1 class="title mgb4">
+			<%= title %>
+				<a class="pull-right" href="/article/new">new baby</a>
+		</h1>
+		<ul class="common-ul nav no-padding">
+			<% pages.forEach(function(p) { %>
+				<li>
+					<a href="<%= p.link %>">
+						<%= p.text %>
+					</a>
+				</li>
+				<% }) %>
 		</ul>
 
-		<div class="articles-list trans-0">
-			<div class="newest">
-				<ul class="common-ul no-padding">
-					<% newest.forEach(function(article) { %>
-						<li>
-							<a href="<%= article.href %>">
-								<p class="title"><%= article.title %></p>
-								<p class="info">
-									<span><%= article.author %></span>
-									<span class="pull-right mgr1"><%= article.date %></span>
-								</p>
-							</a>
-						</li>
-					<% }) %>
-				</ul>
-			</div>
+		<ul class="connect-me common-ul ul-inline">
+			<% connects.forEach(function(c) { %>
+				<li>
+					<a href="<%= c.link %>" target="_blank" title="<%= c.title %>">
+					<i class="fa <%= c.icon %>" aria-hidden="true"></i>
+				</a>
+				</li>
+				<% }) %>
+		</ul>
 
-			<div class="update">
-				<ul class="common-ul no-padding">
-					<% update.forEach(function(article) { %>
-						<li>
-							<a href="<%= article.href %>">
-								<p class="title"><%= article.title %></p>
-								<p class="info">
-									<span><%= article.author %></span>
-									<span class="pull-right mgr1"><%= article.update %></span>
-								</p>
-							</a>
-						</li>
-					<% }) %>
-				</ul>
-			</div>
+		<div class="bg-story">
+			<p class="story-text">背景故事：老家一公里外的户县机场，五月艳阳似水，野草丰茂，午后的牛儿眉头紧锁，若有所思</p>
+		</div>
 
-			<div class="recent-comments">
-				<!-- 多说最新评论 start -->
-				<div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
-				<!-- 多说最新评论 end -->
-				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-				<script type="text/javascript">
-				var duoshuoQuery = {short_name:"nodefc"};
-					(function() {
-						var ds = document.createElement('script');
-						ds.type = 'text/javascript';ds.async = true;
-						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-						ds.charset = 'UTF-8';
-						(document.getElementsByTagName('head')[0] 
-						 || document.getElementsByTagName('body')[0]).appendChild(ds);
-					})();
-					</script>
-				<!-- 多说公共JS代码 end -->
-			</div>
+		<div class="shortcut-articles">
+			<ul class="common-ul ul-inline no-padding">
+				<li class="no-text-select active">最近发表</li>
+				<li class="no-text-select">最近更新</li>
+				<li class="no-text-select">热评文章</li>
+			</ul>
 
-			<div class="recent-comments">
-				<!-- 多说热评文章 start -->
-				<div class="ds-top-threads" data-range="monthly" data-num-items="5">
+			<div class="articles-list trans-0">
+				<div class="newest">
+					<ul class="common-ul no-padding">
+						<% newest.forEach(function(article) { %>
+							<li>
+								<a href="<%= article.href %>">
+									<p class="title">
+										<%= article.title %>
+									</p>
+									<p class="info">
+										<span><%= article.author %></span>
+										<span class="pull-right mgr1"><%= article.date %></span>
+									</p>
+								</a>
+							</li>
+							<% }) %>
+					</ul>
 				</div>
-				<!-- 多说热评文章 end -->
-				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-				<script type="text/javascript">
-				var duoshuoQuery = {short_name:"nodefc"};
-					(function() {
-						var ds = document.createElement('script');
-						ds.type = 'text/javascript';ds.async = true;
-						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-						ds.charset = 'UTF-8';
-						(document.getElementsByTagName('head')[0] 
-						 || document.getElementsByTagName('body')[0]).appendChild(ds);
-					})();
-				</script>
-				<!-- 多说公共JS代码 end -->
-			</div>
 
+				<div class="update">
+					<ul class="common-ul no-padding">
+						<% update.forEach(function(article) { %>
+							<li>
+								<a href="<%= article.href %>">
+									<p class="title">
+										<%= article.title %>
+									</p>
+									<p class="info">
+										<span><%= article.author %></span>
+										<span class="pull-right mgr1"><%= article.update %></span>
+									</p>
+								</a>
+							</li>
+							<% }) %>
+					</ul>
+				</div>
+
+				<div class="recent-comments">
+					<div id="hot-news-wrap"></div>
+					<script>
+						var yunModuleEnv = true;
+					</script>
+					<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+					<script>
+						var yunTieProductKey = "65fdfb6bee6a49e2b0d5aae590fa07cd";
+						var yunHotNewsWrap = "hot-news-wrap";   //放置的DOM节点ID 或 样式类
+						Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vZXh0ZW5kL2hvdF9uZXdzX3NjcmlwdC5odG1s", true);
+
+					</script>
+				</div>
+
+			</div>
 		</div>
 	</div>
-</div>
-<% include ./footer %>
+	<% include ./footer %>
