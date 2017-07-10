@@ -100,7 +100,7 @@
       }
       @for $i from 0 to 3 {
         &.trans-#{$i} {
-          transform: translateX(-$i * 33.33 + %);
+          transform: translateX(-$i * 50 + %);
         }
       }
     }
