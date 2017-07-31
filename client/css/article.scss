@@ -49,6 +49,9 @@
     h3.title {
       font-weight: bold;
     }
+    .summary {
+      white-space: pre-line;
+    }
     .edit {
       color: $deepest-grey-color;
       font-size: 1rem;
