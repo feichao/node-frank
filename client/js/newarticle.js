@@ -5,18 +5,36 @@ var Ajax = require('./ajax.js');
 var authcodeBtn;
 var phoneInput;
 var submitFrom;
-var textareaEle;
+var editorPlaceholder;
+var editorContent;
+var editor;
 
 $(document).ready(function() {
 	authcodeBtn = $('#authcode');
 	phoneInput = $('input[name="phone"]');
 	submitFrom = $('#submit-artical');
-	textareaEle = $('textarea');
+	editorPlaceholder = $('#wang-editor-placeholder');
+	editorContent = $('#wang-editor-content');
 
 	authcodeBtn.on('click', getAuthcode);
-	textareaEle.on('keyup', showTitle);
 	submitFrom.submit(submitArtical);
+
+	editor = new window.wangEditor('#wang-editor');
+	editor.customConfig.uploadImgShowBase64 = true;
+	editor.customConfig.showLinkImg = false;
+	editor.customConfig.zIndex = 999;
+	editor.customConfig.onchange = editorChanged;
+	editor.create();
 });
+
+function editorChanged() {
+	if (editor.txt.text()) {
+		editorPlaceholder.hide();
+	} else {
+		editorPlaceholder.show();
+	}
+	editorContent.val(editor.txt.html());
+}
 
 function disabledBtn($btn) {
 	var timeout = 60;
@@ -55,15 +73,6 @@ function getAuthcode(event) {
 			disabledBtn($this);
 		}
 	});
-}
-
-function showTitle(event) {
-	var $this = $(this);
-	if(this.value) {
-		$this.parent().attr('placeholder', this.placeholder).addClass('dynamic-ttile');
-	} else {
-		$this.parent().removeClass('dynamic-ttile');
-	}
 }
 
 function submitArtical(event) {
