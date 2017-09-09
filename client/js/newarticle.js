@@ -21,7 +21,6 @@ $(document).ready(function() {
 
 	editor = new window.wangEditor('#wang-editor');
 	editor.customConfig.uploadImgShowBase64 = true;
-	editor.customConfig.showLinkImg = false;
 	editor.customConfig.zIndex = 999;
 	editor.customConfig.onchange = editorChanged;
 	editor.create();

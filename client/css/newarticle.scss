@@ -11,7 +11,7 @@
     max-width: 1440px;
     width: 80%;
 
-    .block {
+    .a-block {
       display: block;
       color: $light-color;
       margin: 20px 0;
@@ -21,16 +21,32 @@
         border: none;
         border-radius: 2px;
       }
-    }
 
-    input {
-      font-size: 1rem;
-      padding: 8px 10px;
-      width: 400px;
-    }
-    
-    input[name=authcode] {
-      width: 200px;
+      input {
+        font-size: 1rem;
+        padding: 8px 10px;
+        width: 400px;
+      }
+      
+      input[name=authcode] {
+        width: 200px;
+      }
+
+      textarea {
+        font-size: 1rem;
+        height: auto;
+        line-height: 1.5rem;
+        padding: 8px 10px;
+        resize: none;
+        width: 100%;
+  
+        &[name=summary], &[name=css], &[name=js] {
+          min-height: 80px;
+        }
+        &[name=body] {
+          min-height: 480px;
+        }
+      }
     }
 
     select {
@@ -59,34 +75,19 @@
       }
     }
 
-    textarea {
-      font-size: 1rem;
-      height: auto;
-      line-height: 1.5rem;
-      padding: 8px 10px;
-      resize: none;
-      width: 100%;
-
-      &[name=summary], &[name=css], &[name=js] {
-        min-height: 80px;
-      }
-      &[name=body] {
-        min-height: 480px;
-      }
-    }
-
     .wang-editor-wrapper {
       position: relative;
-      input {
-        border: none;
-        left: 0;
-        line-height: 1.5;
-        padding: 10px;
-        position: absolute;
-        top: 30px;
-      }
     }
   }
+}
+
+#wang-editor-placeholder {
+  border: none;
+  left: 0;
+  line-height: 1.5;
+  padding: 10px;
+  position: absolute;
+  top: 30px;
 }
 
 #wang-editor-content {

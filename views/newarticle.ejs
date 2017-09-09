@@ -2,19 +2,19 @@
 <div id="new-article-wrap">
 	<form id="submit-artical" class="mgb2" data-referer="<%= referer %>">
 		<a class="pull-right home-page" href="/">主页邬</a>
-		<label class="block">
+		<label class="a-block">
 			<span class="mgr1">标题</span>
 			<input type="text" name="title" value="<%= blog.title %>" required="required" max-length="32" placeholder="输入标题">
 		</label>
-		<label class="block">
+		<label class="a-block">
 			<span class="mgr1">作者</span>
 			<input type="text" name="author" value="<%= blog.author %>" required="required" max-length="16" placeholder="输入作者">
 		</label>
-		<label class="block">
+		<label class="a-block">
 			<span class="mgr1">标签</span>
 			<input type="text" name="tags" value="<%= blog.tags %>" required="required" max-length="32" placeholder="输入标签，‘+’分隔">
 		</label>
-		<label class="block">
+		<label class="a-block">
 			<span class="mgr1">分类</span>
 			<select name="category">
 				<% categories.forEach(function(c) { %>
@@ -26,7 +26,7 @@
 				<% }) %>
 			</select>
 		</label>
-		<label class="block">
+		<label class="a-block">
 			<span class="mgr1 mobile hidden">摘要</span>
 			<textarea name="summary" required="required" placeholder="摘要"><%= blog.summary %></textarea>
 		</label>
@@ -40,20 +40,20 @@
 			</div>
 		<% } %>
 		<% if (!blog.isRichEditor && typeof isEdit !== 'undefined') { %>
-			<label class="block">
+			<label class="a-block">
 				<span class="mgr1 mobile hidden">正文</span>
 				<textarea name="body" required="required" placeholder="输入正文，Markdown 格式"><%= blog.body %></textarea>
 			</label>
-			<label class="block">
+			<label class="a-block">
 				<span class="mgr1 mobile hidden">CSS 文件</span>
 				<textarea name="css" placeholder="输入文章依赖的 CSS 文件链接，换行分隔"><%= blog.css %></textarea>
 			</label>
-			<label class="block">
+			<label class="a-block">
 				<span class="mgr1 mobile hidden">JS 文件</span>
 				<textarea name="js" placeholder="输入文章依赖的 JS 文件链接，换行分隔"><%= blog.js %></textarea>
 			</label>
 		<% } %>
-		<label class="block mgb3">
+		<label class="a-block mgb3">
 			<input type="text" name="phone" required="required" placeholder="输入手机号，获取授权码">
 			<input type="text" name="authcode" class="mgl2" required="required" placeholder="输入授权码">
 			<button id="authcode" class="button mgl2" type="button">获取授权码</button>
