@@ -56,7 +56,7 @@ function getArticleDetail(req, res, next) {
 					summary: doc.summary,
 					css: doc.css,
 					js: doc.js,
-					body: Marked(doc.body)
+					body: doc.isRichEditor ? doc.body : Marked(doc.body)
 				},
 				pages: pages,
 				connects: connects
@@ -94,7 +94,7 @@ function getJsonArticleDetail(req, res, next) {
 					summary: doc.summary,
 					css: doc.css,
 					js: doc.js,
-					body: Marked(doc.body)
+					body: doc.isRichEditor ? doc.body : Marked(doc.body)
 				}
 			});
 		});
