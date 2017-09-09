@@ -30,9 +30,10 @@ function sendAuthCode(req, res, next) {
   		}
   		
       req.session.authcode = authcode;
+      req.session.authcodecount = 0; // 2 小时可以重复使用 authcode 5 次
       req.session.authcodetime = now;
       res.cookie('authcode', 1, {
-        expires: new Date(req.session.authcodetime + 1000 * 60 * 60), 
+        expires: new Date(req.session.authcodetime + 1000 * 60 * 60 * 2), 
         httpOnly: true
       });
 

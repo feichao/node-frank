@@ -70,6 +70,9 @@
       &[name=summary], &[name=css], &[name=js] {
         min-height: 80px;
       }
+      &[name=body] {
+        min-height: 480px;
+      }
     }
 
     .wang-editor-wrapper {
@@ -82,12 +85,13 @@
         position: absolute;
         top: 30px;
       }
-      textarea {
-        left: -9999px;
-        position: fixed;
-      }
     }
   }
+}
+
+#wang-editor-content {
+  left: -9999px;
+  position: fixed;
 }
 
 #wang-editor {

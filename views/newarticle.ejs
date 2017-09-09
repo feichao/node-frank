@@ -30,30 +30,40 @@
 			<span class="mgr1 mobile hidden">摘要</span>
 			<textarea name="summary" required="required" placeholder="摘要"><%= blog.summary %></textarea>
 		</label>
-		<div class="wang-editor-wrapper">
-			<div id="wang-editor">
-				<%- blog.body %>
+		<% if (blog.isRichEditor || typeof isNew !== 'undefined') { %>
+			<div class="wang-editor-wrapper">
+				<div id="wang-editor">
+					<%- blog.body %>
+				</div>
+				<textarea id="wang-editor-content" name="body"><%= blog.body %></textarea>
+				<input id="wang-editor-placeholder" type="text" readonly placeholder="正文">
 			</div>
-			<textarea id="wang-editor-content" name="body"></textarea>
-			<input id="wang-editor-placeholder" type="text" readonly placeholder="正文">
-		</div>
-		<!-- <label class="block">
-			<span class="mgr1 mobile hidden">正文</span>
-			<textarea name="body" required="required" placeholder="输入正文，Markdown 格式"><%= blog.body %></textarea>
-		</label>
-		<label class="block">
-			<span class="mgr1 mobile hidden">CSS 文件</span>
-			<textarea name="css" placeholder="输入文章依赖的 CSS 文件链接，换行分隔"><%= blog.css %></textarea>
-		</label>
-		<label class="block">
-			<span class="mgr1 mobile hidden">JS 文件</span>
-			<textarea name="js" placeholder="输入文章依赖的 JS 文件链接，换行分隔"><%= blog.js %></textarea>
-		</label> -->
+		<% } %>
+		<% if (!blog.isRichEditor && typeof isEdit !== 'undefined') { %>
+			<label class="block">
+				<span class="mgr1 mobile hidden">正文</span>
+				<textarea name="body" required="required" placeholder="输入正文，Markdown 格式"><%= blog.body %></textarea>
+			</label>
+			<label class="block">
+				<span class="mgr1 mobile hidden">CSS 文件</span>
+				<textarea name="css" placeholder="输入文章依赖的 CSS 文件链接，换行分隔"><%= blog.css %></textarea>
+			</label>
+			<label class="block">
+				<span class="mgr1 mobile hidden">JS 文件</span>
+				<textarea name="js" placeholder="输入文章依赖的 JS 文件链接，换行分隔"><%= blog.js %></textarea>
+			</label>
+		<% } %>
 		<label class="block mgb3">
 			<input type="text" name="phone" required="required" placeholder="输入手机号，获取授权码">
-			<input type="text" name="authcode" class="mgl2" required="required" placeholder="输入授权码，区分大小写">
+			<input type="text" name="authcode" class="mgl2" required="required" placeholder="输入授权码">
 			<button id="authcode" class="button mgl2" type="button">获取授权码</button>
 		</label>
+		<% if (typeof isNew !== 'undefined') { %>
+			<input type="hidden" name="isRichEditor" value="true">
+		<% } %>
+		<% if (typeof isEdit !== 'undefined') { %>
+			<input type="hidden" name="isRichEditor" value="<%= blog.isRichEditor %>">
+		<% } %>
 		<input type="hidden" name="id" value="<%= blog.id %>">
 		<button class="button mgr2" type="submit">保存</button>
 		<a href="<%= referer %>">

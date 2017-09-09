@@ -45,6 +45,8 @@ var articleSchema = new Schema({
 
   // 文章依赖的 CSS 文件
   css: [String],
+
+  isRichEditor: { type: Boolean, default: false },
 });
 
 module.exports = {

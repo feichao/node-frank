@@ -69,7 +69,7 @@ function getAuthcode(event) {
 		if(data.code !== 0) {
 			Toast.show(data.msg);
 		} else {
-			Toast.show('发送成功，授权码1小时内有效');
+			Toast.show('发送成功，2 小时内有效，最多使用 5 次');
 			disabledBtn($this);
 		}
 	});

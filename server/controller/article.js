@@ -147,6 +147,7 @@ function updateArticlePage(req, res, next) {
 
 			res.render('newarticle', {
 				title: '编辑文章',
+				isEdit: true,
 				categories: categories,
 				blog: {
 					id: id,
@@ -155,6 +156,7 @@ function updateArticlePage(req, res, next) {
 					category: doc.category,
 					tags: doc.tags.join('+'),
 					summary: doc.summary,
+					isRichEditor: doc.isRichEditor,
 					css: doc.css.join('\n'),
 					js: doc.js.join('\n'),
 					body: doc.body,
@@ -166,6 +168,7 @@ function updateArticlePage(req, res, next) {
 	} else {
 		res.render('newarticle', {
 			title: '新建文章',
+			isNew: true,
 			categories: categories,
 			blog: {},
 			referer: referer
@@ -176,7 +179,7 @@ function updateArticlePage(req, res, next) {
 function updateArticle(req, res, next) {
 	var sess = req.session;
 
-	if (!sess.authcode || req.body.authcode !== sess.authcode) {
+	if (!sess.authcode || !req.body.authcode || (req.body.authcode.toLowerCase() !== sess.authcode.toLowerCase())) {
 		return res.json(Request.Error.ARTICLE.ILLEGAL_USER);
 	}
 
@@ -201,11 +204,14 @@ function updateArticle(req, res, next) {
 			return next(err);
 		}
 
-		sess.authcode = undefined;
-		res.cookie('authcode', 1, {
-			expires: new Date(Date.now() - 1),
-			httpOnly: true
-		});
+		sess.authcodecount++;
+		if (sess.authcodecount >= 5) {
+			sess.authcode = undefined;
+			res.cookie('authcode', 1, {
+				expires: new Date(Date.now() - 1),
+				httpOnly: true
+			});
+		}
 
 		res.json(Request.Ok);
 	});
