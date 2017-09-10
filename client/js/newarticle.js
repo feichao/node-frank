@@ -5,7 +5,6 @@ var Ajax = require('./ajax.js');
 var authcodeBtn;
 var phoneInput;
 var submitFrom;
-var editorPlaceholder;
 var editorContent;
 var editor;
 
@@ -13,7 +12,6 @@ $(document).ready(function() {
 	authcodeBtn = $('#authcode');
 	phoneInput = $('input[name="phone"]');
 	submitFrom = $('#submit-artical');
-	editorPlaceholder = $('#wang-editor-placeholder');
 	editorContent = $('#wang-editor-content');
 
 	authcodeBtn.on('click', getAuthcode);
@@ -27,11 +25,6 @@ $(document).ready(function() {
 });
 
 function editorChanged() {
-	if (editor.txt.text()) {
-		editorPlaceholder.hide();
-	} else {
-		editorPlaceholder.show();
-	}
 	editorContent.val(editor.txt.html());
 }
 

@@ -81,15 +81,6 @@
   }
 }
 
-#wang-editor-placeholder {
-  border: none;
-  left: 0;
-  line-height: 1.5;
-  padding: 10px;
-  position: absolute;
-  top: 30px;
-}
-
 #wang-editor-content {
   left: -9999px;
   position: fixed;
@@ -99,6 +90,9 @@
   background: #fff;
   .w-e-text-container {
     min-height: 660px;
+  }
+  .w-e-toolbar {
+    flex-wrap: wrap;
   }
 }
 
@@ -121,17 +115,16 @@
         top: 10px;
       }
     
-      .block {
+      .a-block {
         margin: 10px 0;
+        input {
+          display: block;
+          width: 100%;
+        }
       }
 
-      a + .block {
+      a + .a-block {
         margin-top: 30px;
-      }
-
-      input {
-        display: block;
-        width: 100%;
       }
       
       input[name=authcode] {
@@ -143,7 +136,6 @@
 
       select {
         display: block;
-        padding: 5px 0px;
         width: 100%;
       }
 
