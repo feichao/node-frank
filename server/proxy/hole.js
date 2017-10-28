@@ -59,19 +59,19 @@ function getHoleList(index, callback) {
           callback(null, result)
         }
 
-        docs.forEach(function(d) {
-          var temp = {
-            id: d._id,
-            date: DateTime.datetime(d.date, 'YYYY-MM-dd HH:mm:ss'),
-            name: d.name,
-            avatar: d.avatar,
-            content: d.content,
-            refId: d.refId,
-          };
-
-          Hole.find({ refId: temp.id })
+        docs.forEach(function(pDoc, pIndex) {
+          Hole.find({ refId: pDoc._id })
             .sort({ date: -1 })
             .exec(function(err, cDocs) {
+              var temp = {
+                id: pDoc._id,
+                date: DateTime.datetime(pDoc.date, 'YYYY-MM-dd HH:mm:ss'),
+                name: pDoc.name,
+                avatar: pDoc.avatar,
+                content: pDoc.content,
+                refId: pDoc.refId,
+              };
+
               if (err) {
                 temp.children = [];
               } else {
@@ -87,7 +87,7 @@ function getHoleList(index, callback) {
                 });
               }
 
-              result.push(temp);
+              result[pIndex] = temp; // bug here: exec callback is not in order
 
               count++;
 
