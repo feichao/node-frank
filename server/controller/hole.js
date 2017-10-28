@@ -51,8 +51,8 @@ function getHole(req, res, next) {
 	var cooInfo = setHoleCookie(req, res);
 
 	HoleProxy.getHoleList(index, function (err, docs) {
-		var pre = +index - 1;
-		var next = +index + 1;
+		var preIndex = +index - 1;
+		var nextIndex = +index + 1;
 
 		if (!err) {
 			res.render('hole', {
@@ -63,8 +63,8 @@ function getHole(req, res, next) {
 				paging: {
 					count: count,
 					index: index,
-					pre: pre < 0 ? 0 : pre,
-					next: next > count ? count : next
+					pre: preIndex < 0 ? 0 : preIndex,
+					next: nextIndex > count ? count : nextIndex
 				}
 			});
 		} else {
