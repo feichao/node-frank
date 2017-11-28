@@ -160,6 +160,14 @@
       }
     }
   }
+  .filing-wraper {
+    bottom: 5px;
+    left: 65px;
+    position: absolute;
+    a {
+      color: #ccc;
+    }
+  }
   .bg-story {
     bottom: 30px;
     cursor: pointer;
@@ -238,6 +246,9 @@
       }
     }
     .shortcut-articles, .bg-story {
+      display: none;
+    }
+    .filing-wraper {
       display: none;
     }
   }
