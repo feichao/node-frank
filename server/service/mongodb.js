@@ -3,7 +3,9 @@
 var Config = require('../../config.js');
 
 var Mongoose = require('mongoose');
-Mongoose.connect(Config.mongoose.url);
+Mongoose.connect(Config.mongoose.url, {
+	useMongoClient: true,
+});
 
 var mongoDB = Mongoose.connection;
 mongoDB.on('error', function(error) {
