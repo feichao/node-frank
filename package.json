@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start-s": "nodemon bin/www",
-    "start-c": "webpack -w"
+    "start-c": "webpack -w",
+    "build-c": "webpack -p"
   },
   "dependencies": {
     "alidayu-node": "^1.0.3",
