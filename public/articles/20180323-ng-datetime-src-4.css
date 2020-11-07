@@ -1,0 +1,144 @@
+.ng-datetime {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px 2px #ddd;
+  display: inline-block;
+}
+
+.quick-select {
+  border-right: 1px solid #e7e7e7;
+  line-height: 30px;
+  list-style: none;
+  margin: 0;
+  max-height: 320px;
+  overflow: auto;
+  padding: 0;
+}
+
+.quick-select li:first-child {
+  margin-top: 10px; 
+}
+
+.quick-select li {
+  margin: 0 10px; 
+}
+
+.actions {
+  margin: 15px 10px;
+}
+
+.actions .md-button:last-child {
+  margin-left: 10px;
+}
+
+.actions .md-button,
+.quick-select .md-button {
+  height: 32px;
+  line-height: 32px;
+  margin: 0;
+  min-height: 32px;
+  min-width: 72px;
+  padding: 0;
+}
+
+.quick-select .md-button {
+  text-align: left;
+  width: 100%;
+}
+
+.date-picker {
+  border-collapse: collapse;
+  margin: 5px;
+}
+
+.date-picker .md-button {
+  border-radius: 50%;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  width: 36px;
+}
+
+.date-picker .md-button.normal-day:hover {
+  background: #efefef;
+}
+
+.date-picker .md-button[disabled] {
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.date-picker .md-button.today.selected {
+  border: none;
+}
+
+.date-picker .md-button.today {
+  border: 1px solid;
+}
+
+.date-picker .md-button.not-in-month {
+  opacity: 0.65;
+}
+
+.date-picker .md-button.not-in-month[disabled] {
+  opacity: 1;
+}
+
+.week-header td {
+  padding: 5px 0;
+  text-align: center;
+}
+
+.time-picker ng-md-icon,
+.picker-header ng-md-icon {
+  display: inline-block;
+}
+
+.time-picker ng-md-icon svg,
+.picker-header ng-md-icon svg {
+  vertical-align: middle;
+}
+
+.tx-center {
+  text-align: center;
+}
+
+md-menu-content.flex-menu-content {
+  max-width: 160px;
+  padding: 5px;
+}
+
+md-menu-content.flex-menu-content.hour-menu-content {
+  max-width: 226px;
+}
+
+md-menu-content.flex-menu-content.minute-menu-content {
+  max-width: 370px;
+}
+
+.flex-menu-content md-menu-item {
+  height: 36px;
+  min-height: 36px;
+  width: 36px;
+}
+
+.flex-menu-content md-menu-item .md-button {
+  height: 36px;
+  margin: 0;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  text-align: center;
+}
+
+.time-picker .split-time {
+  position: relative;
+}
+
+.time-picker .split-time::after {
+  content: ':';
+  line-height: 36px;
+  position:absolute;
+  right: -2px;
+  top: 0;
+}

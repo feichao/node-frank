@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+  <title>ngDatetime</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="http://7xlphe.com1.z0.glb.clouddn.com/angular-material.min-1.1.1.css">
+  <link rel="stylesheet" type="text/css" href="http://o8tapqn1p.bkt.clouddn.com/20180322-ng-datetime-src-2.css">
+  <style>
+    .wrapper {
+      overflow: hidden;
+      padding: 10px 0 30px 0;
+      text-align: center;
+    }
+    .wrapper:nth-child(odd) {
+      background: rgba(57,73,171,0.05); 
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body style="margin: 20px;">
+  <div ng-controller="MyController">
+    <div class="ng-datetime" ng-if="false">
+      <div layout="row">
+        <ul layout="column" class="quick-select">
+          <li flex="50" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]">
+            <md-button>最近1天</md-button>
+          </li>
+        </ul>
+        <table class="date-picker" ng-repeat="i in [0, 1]">
+          <tbody>
+            <tr class="picker-header">
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_left"></ng-md-icon>
+                </md-button>
+              </td>
+              <td colspan="2">
+                <input name="year-filed" type="text" value="2017">
+              </td>
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_right"></ng-md-icon>
+                </md-button>
+              </td>
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_left"></ng-md-icon>
+                </md-button>
+              </td>
+              <td>
+                <input name="month-filed" type="text" value="09">
+              </td>
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_right"></ng-md-icon>
+                </md-button>
+              </td>
+            </tr>
+            <tr ng-repeat="j in [0, 1, 2, 3, 4, 5]">
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 1 }}</md-button>
+              </td>
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 2 }}</md-button>
+              </td>
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 3 }}</md-button>
+              </td>
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 4 }}</md-button>
+              </td>
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 5 }}</md-button>
+              </td>
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 6 }}</md-button>
+              </td>
+              <td>
+                <md-button class="md-icon-button md-mini normal-day">{{ j * 7 + 7 }}</md-button>
+              </td>
+            </tr>
+            <tr class="time-picker">
+              <td></td>
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_left"></ng-md-icon>
+                </md-button>
+              </td>
+              <td>
+                <input name="hour-filed" type="text" value="22">
+              </td>
+              <td class="split-time">
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_right"></ng-md-icon>
+                </md-button>
+              </td>
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_left"></ng-md-icon>
+                </md-button>
+              </td>
+              <td>
+                <input name="minute-filed" type="text" value="09">
+              </td>
+              <td>
+                <md-button class="md-primary md-icon-button md-mini">
+                  <ng-md-icon size="24" icon="keyboard_arrow_right"></ng-md-icon>
+                </md-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div layout="row" class="actions">
+        <md-button class="md-raised">今天</md-button>
+        <span flex></span>
+        <md-button class="md-warn">取消</md-button>
+        <span flex="5"></span>
+        <md-button class="md-primary md-raised">确定</md-button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <h3>Date Picker with max & min</h3>
+      <h4>You select: {{ date }}</h4>
+      <ng-datetime dt-type="date" choice="date" dt-confirm="confirm(choice)" max="{{ max }}" min="{{ min }}"></ng-datetime>
+    </div>
+    <div class="wrapper">
+      <h3>Time Picker</h3>
+      <h4>You select: {{ time }}</h4>
+      <ng-datetime dt-type="time" choice="time" dt-confirm="confirm(choice)"></ng-datetime>
+    </div>
+    <div class="wrapper">
+      <h3>Datetime Picker with quick-select</h3>
+      <h4>You select: {{ datetime }}</h4>
+      <ng-datetime dt-type="datetime" choice="datetime" dt-q-select="qSelect" dt-confirm="confirm(choice)"></ng-datetime>
+    </div>
+    <div class="wrapper">
+      <h3>Date-Range Picker with max-length = 10 days & min-length = 5 days</h3>
+      <h4>You select: {{ startDate }} to {{ endDate }}</h4>
+      <ng-datetime dt-type="date-range" start-choice="startDate" end-choice="endDate" dt-confirm="confirm(startChoice, endChoice)" max-length="10" min-length="5"></ng-datetime>
+    </div>
+    <div class="wrapper">
+      <h3>Time-Range Picker</h3>
+      <h4>You select: {{ startTime }} to {{ endTime }}</h4>
+      <ng-datetime dt-type="time-range" start-choice="startTime" end-choice="endTime" dt-confirm="confirm(startChoice, endChoice)"></ng-datetime>
+    </div>
+    <div class="wrapper">
+      <h3>Datetime-Range Picker with quick-select</h3>
+      <h4>You select: {{ startDatetime }} to {{ endDatetime }}</h4>
+      <ng-datetime dt-type="datetime-range" start-choice="startDatetime" end-choice="endDatetime" dt-confirm="confirm(startChoice, endChoice)" dt-q-select="qSelectRange"></ng-datetime>
+    </div>
+    <div class="wrapper">
+      <h3>Date-TimeRange Picker with customer language</h3>
+      <h4>You select: {{ startDatetime0 }} to {{ endDatetime0 }}</h4>
+      <ng-datetime dt-type="date-timerange" start-choice="startDatetime0" end-choice="endDatetime0" dt-confirm="confirm(startChoice, endChoice)" dt-language="dtLanguage"></ng-datetime>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-animate.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-aria.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-messages.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-material.min-1.1.1.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-material-icons.min.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/moment.min.js"></script>
+
+  <script type="text/javascript" src="http://o8tapqn1p.bkt.clouddn.com/20180322-ng-datetime-src-2.js"></script>
+  <script type="text/javascript" src="http://o8tapqn1p.bkt.clouddn.com/20180321-ng-datetime-demo.js"></script>
+</body>
+
+</html>

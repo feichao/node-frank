@@ -1,0 +1,26 @@
+.digit-dance {
+  border: 1px solid #999;
+  display: inline-block;
+  font-family: monospace;
+  font-weight: 100;
+  height: 45px;
+  overflow: hidden;
+  position: relative;
+  width: 30px;
+}
+
+.digit-dance > .outer-span {
+  height: 1000%;
+  position: absolute;
+  transition: all 1s;
+  width: 100%;
+}
+
+.digit-dance > .outer-span > .inner-span {
+  float: left;
+  font-size: 35px;
+  height: 10%;
+  line-height: 45px;
+  text-align: center;
+  width: 100%;
+}

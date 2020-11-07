@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ngTableTree</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="http://7xlphe.com1.z0.glb.clouddn.com/angular-material.min-1.1.1.css">
+  <link rel="stylesheet" type="text/css" href="http://o8tapqn1p.bkt.clouddn.com/20180219-tabletree-src.css">
+  <link rel="stylesheet" type="text/css" href="http://o8tapqn1p.bkt.clouddn.com/20180219-table-tree-demo.css">
+</head>
+
+<body>
+  <div ng-app="MyApp" ng-controller="MyController">
+    <h3>init-expand: true</h3>
+    <table table-tree="tree" init-expand="true">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ **.name }}</td>
+          <td>{{ **.age }}</td>
+          <td>{{ **.address }}</td>
+          <td>
+            {{ **.contact }}
+            <ng-md-icon icon="info" style="fill: #ccc; vertical-align: middle;" size="16">
+              <md-tooltip>please contact me with {{ **.contact }}</md-tooltip>
+            </ng-md-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top: 30px;">init-expand: false</h3>
+    <table table-tree="tree" init-expand="false">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ **.name }}</td>
+          <td tt-expand>{{ **.age }}</td>
+          <td>{{ **.address }}</td>
+          <td>{{ **.contact }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-animate.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-aria.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-messages.min-1.5.8.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-material.min-1.1.1.js"></script>
+  <script type="text/javascript" src="http://7xlphe.com1.z0.glb.clouddn.com/angular-material-icons.min.js"></script>
+
+  <script type="text/javascript" src="http://o8tapqn1p.bkt.clouddn.com/20180219-tabletree-src.js"></script>
+  <script type="text/javascript" src="http://o8tapqn1p.bkt.clouddn.com/20180219-table-tree-demo.js"></script>
+</body>
+
+</html>

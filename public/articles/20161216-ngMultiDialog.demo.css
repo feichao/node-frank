@@ -1,0 +1,12 @@
+.dialog {
+  min-width: 540px;
+  padding: 10px 30px 30px;
+}
+
+.wrapper {
+  width: 600px;
+}
+
+.actions {
+  margin-top: 40px;
+}

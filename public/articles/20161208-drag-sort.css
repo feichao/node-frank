@@ -1,0 +1,36 @@
+.drag-wrap {
+  box-sizing: content-box;
+  margin: auto;
+  position: relative;
+  width: 920px;
+}
+.drag-block, .temp-block {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 0 1px 1px #e7e7e7;
+  box-sizing: border-box;
+  cursor: move;
+  float: left;
+  height: 330px;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 440px;
+  z-index: 1;
+}
+.temp-block {
+  border-style: dashed;
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .drag-wrap {
+    width: 1380px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .drag-wrap {
+    width: 1840px;
+  }
+}
